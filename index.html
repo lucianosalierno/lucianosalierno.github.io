@@ -4,352 +4,677 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Luciano Salierno</title>
-<meta name="description" content="Siti, web app, automazioni e integrazione dati per aziende, studi professionali ed enti locali. Progetti a prezzo fisso, con oltre 10 anni di esperienza nello sviluppo di software aziendale.">
+<meta name="description" content="Siti web, applicazioni su misura, automazioni e dati per aziende, studi professionali ed enti locali. Preventivo gratuito entro 1–2 giorni, prezzo fisso, oltre 10 anni di esperienza.">
+<link rel="alternate" hreflang="it" href="https://www.lucianosalierno.it/">
+<link rel="alternate" hreflang="en" href="https://www.lucianosalierno.com/">
+<link rel="alternate" hreflang="x-default" href="https://www.lucianosalierno.it/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: banda d'apertura petrolio con riga arancio (come il CV), poi sezioni chiare a colonna larga; il progetto reale è il pezzo forte */
+/* Layout: carta avorio e bande crema alternate, testata serif calma, una banda noce per la chiamata finale.
+   Palette unica per tutti (non segue il tema chiaro/scuro del dispositivo). */
 :root {
-  --bg: #f3f5f5;
-  --surface: #ffffff;
-  --band: #183941;
-  --band-2: #25515b;
-  --band-fg: #e6eef0;
-  --band-muted: #a9bec3;
-  --fg: #172a2f;
-  --muted: #5b6a6e;
-  --line: #d7dfe0;
-  --accent: #e07b32;
-  --accent-ink: #b45d1c;
-  --link: #1f5866;
-  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --f-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
-  --wrap: 1120px;
-  --r: 6px;
+  --ivory: #fbf7f0;
+  --cream: #f3eadc;
+  --sand: #e4d6c1;
+  --walnut: #5a4031;
+  --walnut-dark: #3a2a20;
+  --ink: #3a2a20;
+  --muted: #7a6555;
+  --caramel: #a9784b;
+  --sage: #7f8b6b;
+  --white: #fffdf9;
+  --f-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --wrap: 1140px;
+  --r: 14px;
+  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1d21; --surface: #152a30; --band: #0c181b; --band-2: #17343b; --band-fg: #e6eef0; --band-muted: #93aab0;
-    --fg: #e4ecee; --muted: #9aaeb2; --line: #284249; --accent: #f08a45; --accent-ink: #f5a26a; --link: #8fc6d3;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0f1d21; --surface: #152a30; --band: #0c181b; --band-2: #17343b; --band-fg: #e6eef0; --band-muted: #93aab0;
-  --fg: #e4ecee; --muted: #9aaeb2; --line: #284249; --accent: #f08a45; --accent-ink: #f5a26a; --link: #8fc6d3;
-  color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--f-body); }
-a { color: var(--link); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
-.eyebrow { font: 700 12px/1 var(--f-display); letter-spacing: .18em; text-transform: uppercase; color: var(--accent-ink); }
-.eyebrow::before { content: "/ "; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--ivory); color: var(--ink); font: 17px/1.65 var(--f-sans); }
+a { color: var(--walnut); }
+:focus-visible { outline: 2px solid var(--caramel); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-serif); font-weight: 500; color: var(--walnut-dark); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1 em, h2 em { font-style: italic; color: var(--walnut); }
+.kicker { font: 600 12.5px/1 var(--f-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--caramel); display: inline-flex; align-items: center; gap: 10px; }
+.kicker::before { content: ""; width: 26px; height: 1px; background: var(--caramel); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; border-radius: 999px; font: 600 15.5px/1.2 var(--f-sans); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: background-color .2s, border-color .2s, transform .2s; }
+.btn.primary { background: var(--walnut); color: var(--ivory); }
+.btn.primary:hover { background: var(--walnut-dark); transform: translateY(-1px); }
+.btn.ghost { border-color: var(--sand); color: var(--walnut-dark); background: transparent; }
+.btn.ghost:hover { border-color: var(--walnut); }
+.btn .arr { transition: transform .2s; }
+.btn:hover .arr { transform: translateX(3px); }
 
-/* barra superiore e apertura */
-.band { background: linear-gradient(100deg, var(--band), var(--band-2)); color: var(--band-fg); border-bottom: 3px solid var(--accent); }
-.band .eyebrow { color: var(--accent); }
-nav.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
-nav.top .name { font: 800 17px/1 var(--f-display); letter-spacing: .14em; color: #fff; text-decoration: none; }
-nav.top ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; flex-wrap: wrap; }
-nav.top ul a { color: var(--band-fg); text-decoration: none; font-weight: 600; font-size: 14px; }
-nav.top ul a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+/* barra superiore */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ivory); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(251, 247, 240, .9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(228, 214, 193, .7); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--walnut-dark); }
+.mono { width: 38px; height: 38px; border-radius: 50%; background: var(--walnut); color: var(--ivory); display: grid; place-items: center; font: italic 500 17px/1 var(--f-serif); letter-spacing: .02em; }
+.brand span { font: 600 15px/1.1 var(--f-sans); letter-spacing: .06em; }
+.brand small { display: block; white-space: nowrap; font: 500 12px/1.3 var(--f-sans); color: var(--muted); letter-spacing: 0; }
+nav.links { display: flex; align-items: center; gap: 20px; }
+nav.links > a { white-space: nowrap; text-decoration: none; color: var(--ink); font-size: 15px; font-weight: 500; }
+nav.links > a:hover { color: var(--caramel); }
+.lang { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--sand); border-radius: 999px; background: var(--white); }
+.lang a { display: flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; font: 600 12.5px/1 var(--f-sans); letter-spacing: .04em; color: var(--muted); text-decoration: none; }
+.lang a:hover { color: var(--walnut-dark); }
+.lang a.on { background: var(--cream); color: var(--walnut-dark); }
+.lang svg { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(58, 42, 32, .12); flex: none; }
+nav.links .btn { padding: 11px 20px; font-size: 14.5px; color: var(--ivory); white-space: nowrap; }
 
-.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 44px 56px; }
-.hero h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.06; font-weight: 800; letter-spacing: -.015em; color: #fff; margin-top: 14px; }
-.hero h1 em { font-style: normal; color: var(--accent); }
-.hero p.lead { font-size: 18px; color: var(--band-fg); margin: 20px 0 0; max-width: 34em; }
-.hero .who { margin-top: 14px; font-size: 15px; color: var(--band-muted); max-width: 36em; }
-.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: var(--r); font: 700 15px/1.2 var(--f-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; }
-.btn.primary { background: var(--accent); color: #1a1006; }
-.btn.primary:hover { filter: brightness(1.06); }
-.btn.ghost { border-color: rgba(255,255,255,.4); color: #fff; background: transparent; }
-.btn.ghost:hover { border-color: #fff; }
-.shot { margin: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 24px 60px rgba(0,0,0,.35); background: #fff; }
-.shot .bar { display: flex; gap: 6px; padding: 9px 12px; background: #e9eeef; }
-.shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #c3cdd0; }
-.shot img { display: block; width: 100%; height: auto; }
-.hero figcaption { font-size: 13px; color: var(--band-muted); margin-top: 10px; }
-.nota { margin: -36px 0 22px; text-align: right; font-size: 12px; color: var(--band-muted); }
+/* apertura */
+.hero { position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; width: 760px; height: 760px; right: -260px; top: -260px; border-radius: 50%; background: radial-gradient(closest-side, rgba(169, 120, 75, .14), rgba(169, 120, 75, 0)); pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 72px 64px; }
+.hero h1 { font-size: clamp(40px, 5.6vw, 68px); line-height: 1.04; margin-top: 22px; }
+.hero .lead { font-size: 19px; color: var(--muted); margin: 24px 0 0; max-width: 32em; }
+.promise { display: grid; gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; }
+.promise li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 500; color: var(--walnut-dark); }
+.promise svg { flex: none; width: 26px; height: 26px; padding: 5px; border-radius: 50%; background: #e8ebe1; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero .cta .btn { flex: 1 1 auto; }
 
-.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,.14); }
-.facts div { padding: 18px 18px 22px 0; }
-.facts b { display: block; font: 800 26px/1.1 var(--f-display); color: #fff; }
-.facts span { font-size: 13.5px; color: var(--band-muted); }
+.window { background: var(--white); border: 1px solid var(--sand); border-radius: 18px; box-shadow: 0 30px 70px -30px rgba(58, 42, 32, .35), 0 2px 0 rgba(255,255,255,.8) inset; overflow: hidden; animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+.window .bar { display: flex; align-items: center; gap: 6px; padding: 11px 14px; border-bottom: 1px solid var(--sand); background: var(--cream); }
+.window .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--sand); }
+.window .bar b { margin-left: 10px; font: 500 11.5px/1 var(--f-sans); color: var(--muted); }
+.note { margin: 12px 2px 0; font-size: 12px; color: var(--muted); text-align: right; }
+
+/* numeri */
+.facts { border-block: 1px solid var(--sand); background: var(--cream); }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.facts .wrap > div { padding: 26px 22px 26px 0; }
+.facts .wrap > div + div { padding-left: 22px; border-left: 1px solid var(--sand); }
+.facts b { display: block; font: 500 34px/1.05 var(--f-serif); color: var(--walnut); }
+.facts span { font-size: 14.5px; color: var(--muted); }
 
 /* sezioni */
-section.block { padding-block: 72px; }
-section.block + section.block { border-top: 1px solid var(--line); }
-.head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 46em; }
-.head h2 { font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; font-weight: 800; letter-spacing: -.01em; }
-.head p { margin: 0; color: var(--muted); font-size: 17px; }
+section.band { padding-block: 96px; }
+section.band.alt { background: var(--cream); }
+.head { max-width: 44em; margin-bottom: 48px; display: grid; gap: 16px; }
+.head h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; }
+.head p { margin: 0; color: var(--muted); font-size: 18px; }
 
-.services { display: grid; gap: 0; border-top: 2px solid var(--fg); }
-.svc { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr) minmax(0, 260px); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); }
-.svc h3 { font-size: 20px; line-height: 1.25; font-weight: 700; }
-.svc p { margin: 0; }
-.svc .for { font-size: 14px; color: var(--muted); }
-.svc .for b { display: block; font: 700 11px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 6px; }
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.svc { background: var(--white); border: 1px solid var(--sand); border-radius: var(--r); padding: 26px 26px 24px; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 4px 18px; transition: border-color .2s, transform .2s, box-shadow .2s; }
+.svc:hover { border-color: var(--caramel); transform: translateY(-2px); box-shadow: 0 18px 40px -28px rgba(58, 42, 32, .4); }
+.ico { grid-row: span 3; width: 46px; height: 46px; border-radius: 12px; background: var(--cream); display: grid; place-items: center; color: var(--walnut); }
+.svc h3 { font-size: 23px; line-height: 1.2; }
+.svc p { margin: 4px 0 0; color: var(--muted); font-size: 16px; }
+.svc .ex { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--sand); font-size: 14px; color: var(--walnut); align-self: end; grid-column: 2; }
+.svc .ex b { font-weight: 600; }
 
-.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
-.case h3 { font-size: 24px; line-height: 1.2; font-weight: 800; }
-.case .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
-.tag { font: 600 12.5px/1 var(--f-body); padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); }
-.case dl { margin: 0; display: grid; gap: 16px; }
-.case dt { font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
-.case dd { margin: 6px 0 0; }
-.case ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 6px; }
-.case ul li::marker { color: var(--accent); }
-.gallery { display: grid; gap: 16px; }
-.gallery figure { margin: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #f3f4f1; }
-.gallery img { display: block; width: 100%; height: auto; }
-.gallery figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--surface); border-top: 1px solid var(--line); }
+.reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 48px; }
+.reason h3 { font-size: 22px; line-height: 1.25; margin-top: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reason p { margin: 8px 0 0; color: var(--muted); font-size: 16px; }
+.reason .num { font: italic 500 15px/1 var(--f-serif); color: var(--caramel); border-top: 1px solid var(--sand); padding-top: 14px; display: block; }
 
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; counter-reset: s; }
-.steps li { border-top: 3px solid var(--accent); padding-top: 14px; counter-increment: s; }
-.steps li::before { content: counter(s); font: 800 13px/1 var(--f-display); color: var(--accent-ink); display: block; margin-bottom: 8px; }
-.steps h3 { font-size: 18px; font-weight: 700; }
+.works { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.work { background: var(--white); border: 1px solid var(--sand); border-radius: var(--r); padding: 26px; display: grid; grid-template-rows: auto 1fr auto; gap: 8px; }
+.work h3 { font-size: 22px; line-height: 1.25; }
+.work p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.work span { margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--sand); font: 600 12px/1.4 var(--f-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--caramel); }
+.steps li.key .x { color: inherit; }
+.clients { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--sand); }
+.client { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--sand); }
+.client:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--sand); }
+.client h3 { font-size: 21px; }
+.client p { margin: 6px 0 0; font-size: 15.5px; color: var(--muted); }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; counter-reset: s; }
+.steps li { counter-increment: s; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r); padding: 22px 20px; position: relative; }
+.steps li::before { content: counter(s); font: italic 500 30px/1 var(--f-serif); color: var(--caramel); display: block; margin-bottom: 12px; }
+.steps h3 { font-size: 20px; line-height: 1.25; }
 .steps p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+.steps li.key { background: var(--walnut); border-color: var(--walnut); }
+.steps li.key::before, .steps li.key h3 { color: var(--ivory); }
+.steps li.key p { color: #e9dccb; }
 
-.bg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
-.bg p { margin: 0 0 14px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-.chips span { font-size: 14px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
-.bg h3 { font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 10px; }
-.bg .col + .col h3:not(:first-child) { margin-top: 26px; }
+.quote { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.quote .card { background: var(--white); border: 1px solid var(--sand); border-radius: 20px; padding: 32px; }
+.quote .card h3 { font-size: 24px; margin-bottom: 14px; }
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ticks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; font-size: 16px; }
+.ticks li svg { margin-top: 4px; color: var(--sage); }
+.quote .free { display: inline-block; margin-top: 22px; font: italic 500 20px/1.3 var(--f-serif); color: var(--walnut); }
 
-.contact { background: linear-gradient(100deg, var(--band), var(--band-2)); color: var(--band-fg); border-top: 3px solid var(--accent); }
-.contact .inner { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; }
-.contact h2 { color: #fff; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; font-weight: 800; margin-top: 12px; }
-.contact p { color: var(--band-fg); margin: 14px 0 0; max-width: 36em; }
-.mailbox { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 22px; display: grid; gap: 14px; }
-.mailbox .lab { font: 700 11px/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--band-muted); }
-.mailbox .addr { font: 700 clamp(16px, 2vw, 20px)/1.3 var(--f-body); color: #fff; overflow-wrap: anywhere; user-select: all; }
-.mailbox .row { display: flex; flex-wrap: wrap; gap: 10px; }
-.mailbox .copy { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
-.mailbox small { color: var(--band-muted); font-size: 13px; }
-.mailbox a.tel { text-decoration: none; }
-.mailbox a.tel:hover { text-decoration: underline; }
+.faqwrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 56px; align-items: start; }
+.faqwrap .head { margin: 0; position: sticky; top: 110px; }
+.faq { border-top: 1px solid var(--sand); }
+.faq details { border-bottom: 1px solid var(--sand); }
+.faq summary { list-style: none; cursor: pointer; padding: 22px 40px 22px 0; position: relative; font: 500 21px/1.3 var(--f-serif); color: var(--walnut-dark); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font: 400 28px/1 var(--f-sans); color: var(--caramel); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 0 0 22px; color: var(--muted); max-width: 46em; }
 
-footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+/* contatti */
+.contact { background: var(--walnut-dark); color: #efe4d4; }
+.contact .wrap { padding-block: 96px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: start; }
+.contact .kicker { color: #d9b48a; }
+.contact .kicker::before { background: #d9b48a; }
+.contact h2 { color: var(--ivory); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin-top: 18px; }
+.contact h2 em { color: #e2c29c; }
+.contact p.lead { margin: 18px 0 0; font-size: 18px; color: #dccdb9; max-width: 30em; }
+.direct { margin-top: 30px; display: grid; gap: 16px; }
+.direct a { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: center; text-decoration: none; color: var(--ivory); }
+.direct .ic { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(239, 228, 212, .25); display: grid; place-items: center; color: #e2c29c; }
+.direct small { display: block; font-size: 12.5px; color: #bfae98; letter-spacing: .08em; text-transform: uppercase; }
+.direct span { font-size: 18px; font-weight: 500; overflow-wrap: break-word; }
+.badge { margin-top: 28px; display: inline-flex; gap: 10px; align-items: center; font-size: 15px; color: #efe4d4; background: rgba(239, 228, 212, .08); border: 1px solid rgba(239, 228, 212, .18); border-radius: 999px; padding: 10px 16px; }
+form.req { background: var(--ivory); color: var(--ink); border-radius: 20px; padding: 30px; display: grid; gap: 16px; }
+form.req h3 { font-size: 24px; }
+form.req .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+form.req label { display: grid; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--walnut); }
+form.req input, form.req select, form.req textarea { font: 16px/1.4 var(--f-sans); color: var(--ink); background: var(--white); border: 1px solid var(--sand); border-radius: 10px; padding: 12px 14px; width: 100%; }
+form.req textarea { min-height: 120px; resize: vertical; }
+form.req input:focus, form.req select:focus, form.req textarea:focus { outline: none; border-color: var(--caramel); box-shadow: 0 0 0 3px rgba(169, 120, 75, .18); }
+form.req .btn { width: 100%; }
+form.req small { color: var(--muted); font-size: 13px; }
 
+footer.foot { background: var(--walnut-dark); border-top: 1px solid rgba(239, 228, 212, .12); color: #bfae98; font-size: 14px; }
+footer.foot .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; }
+footer.foot a { color: #e2c29c; text-decoration: none; }
+footer.foot .fl { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+footer.foot .fl > * { white-space: nowrap; }
 
-/* anteprime dell'applicazione (resa fissa chiara, come una schermata) */
-.mock { background: #f3f4f1; color: #1d221e; padding: 12px; font-family: var(--f-body); }
-.mock .mh { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-.mock .mt { font: 700 16px/1 var(--f-display); }
-.mock .mt i { font-style: normal; color: #5d665f; font-weight: 500; }
-.mock .leg { display: flex; flex-wrap: wrap; gap: 8px; font-size: 10px; color: #5d665f; }
-.mock .leg span::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 2px; background: var(--c); margin-right: 4px; }
-.mgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: #d8dbd3; border: 1px solid #d8dbd3; border-radius: 6px; overflow: hidden; }
-.mgrid .dw { background: #eceee9; font: 700 8.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: #5d665f; padding: 6px 5px; }
-.mc { background: #fff; min-height: 92px; padding: 4px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.mc.we { background: #e9ebe5; }
-.mc.out { opacity: .55; }
-.mc b { font: 600 11px/1.2 var(--f-display); padding: 1px 2px; }
-.ch { display: flex; gap: 4px; align-items: flex-start; font-size: 9.5px; line-height: 1.22; padding: 2px 4px; border-radius: 3px; background: color-mix(in oklab, var(--c) 14%, #fff); min-width: 0; }
-.ch::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--c); flex: none; margin-top: 3px; }
-.ch span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
-.ch.pr { background: transparent; box-shadow: inset 0 0 0 1.2px var(--c); }
-.ch.pr::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
-.mc .more { font-size: 9px; color: #5d665f; font-weight: 600; padding: 0 3px; }
-.mock .pt { font: 700 10px/1 var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: #5d665f; margin-bottom: 8px; }
-.prow { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 9px; align-items: start; padding: 7px 4px; border-top: 1px solid #e1e4dd; font-size: 13px; }
-.prow .pd { font: 500 12px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #5d665f; }
-.prow .sw { width: 9px; height: 9px; border-radius: 2px; background: var(--c); margin-top: 5px; }
-.prow b { font-weight: 600; display: block; }
-.prow small { color: #5d665f; font-size: 11.5px; }
-.dcard { background: #fff; border: 1px solid #d8dbd3; border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; }
-.dtag { font: 700 10.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--c); display: flex; align-items: center; gap: 6px; }
-.dtag::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--c); }
-.dcard .dt { font: 700 16px/1.25 var(--f-display); }
-.dcard .dobj { font-size: 12.5px; color: #5d665f; }
-.dfacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; font-size: 12.5px; }
-.dfacts i { display: block; font: 700 9.5px/1.4 var(--f-body); letter-spacing: .1em; text-transform: uppercase; font-style: normal; color: #5d665f; }
-.dbtn { justify-self: start; background: #23466e; color: #fff; font: 700 12px/1 var(--f-body); padding: 9px 12px; border-radius: 6px; }
-@media (max-width: 560px) {
-  .mc { min-height: 64px; }
-  .ch { font-size: 8px; padding: 1px 3px; }
-  .ch span { -webkit-line-clamp: 1; }
-  .mc .ch:nth-of-type(2), .mock .leg { display: none; }
+/* anteprima cruscotto (apertura) */
+.stage { position: relative; }
+.dash { padding: 18px; display: grid; gap: 14px; }
+.dh { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.dt { font: 500 21px/1 var(--f-serif); color: var(--walnut-dark); }
+.pill { font-size: 11px; color: var(--muted); background: var(--cream); border-radius: 999px; padding: 5px 10px; white-space: nowrap; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.kpis > div { background: var(--ivory); border: 1px solid var(--sand); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; }
+.kpis small { font-size: 10.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kpis b { font: 500 21px/1.15 var(--f-serif); color: var(--walnut-dark); white-space: nowrap; }
+.kpis em { font: 600 10.5px/1 var(--f-sans); font-style: normal; color: #5f7a4a; }
+.chart svg { display: block; width: 100%; height: 86px; }
+.months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.months span { font-size: 9.5px; color: var(--muted); text-align: center; }
+.orders { display: grid; border-top: 1px solid var(--sand); }
+.orow { display: grid; grid-template-columns: 1fr 1.1fr auto auto; gap: 10px; align-items: center; font-size: 11.5px; padding: 8px 0; border-bottom: 1px solid #efe5d6; }
+.orow:last-child { border-bottom: 0; padding-bottom: 0; }
+.orow b { font-weight: 600; color: var(--walnut-dark); white-space: nowrap; }
+.orow span { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.orow .amt { color: var(--ink); font-variant-numeric: tabular-nums; text-align: right; }
+.st { font: 600 10px/1 var(--f-sans); padding: 5px 8px; border-radius: 999px; white-space: nowrap; }
+.st.ok { background: #e6ecdc; color: #4f6a3c; }
+.st.wait { background: #f4e5d2; color: #8a5a2b; }
+.st.new { background: #e3e8ef; color: #4b5f7a; }
+.notif { position: absolute; left: -34px; bottom: -46px; width: min(300px, 80%); display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px; align-items: center; background: var(--white); border: 1px solid var(--sand); border-radius: 14px; padding: 11px 13px; box-shadow: 0 18px 40px -20px rgba(58, 42, 32, .45); animation: rise 1.1s .25s cubic-bezier(.2,.7,.2,1) both; }
+.nic { width: 30px; height: 30px; border-radius: 50%; background: #e6ecdc; color: #4f6a3c; display: grid; place-items: center; }
+.notif b { display: block; font-size: 12px; color: var(--walnut-dark); }
+.notif small { display: block; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.notif em { font-style: normal; font-size: 10.5px; color: var(--muted); align-self: start; }
+.hero .note { margin-top: 58px; }
+
+/* esempi */
+.examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.ex-card { background: var(--white); border: 1px solid var(--sand); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.ex-card:hover { transform: translateY(-3px); border-color: var(--caramel); box-shadow: 0 22px 44px -30px rgba(58, 42, 32, .5); }
+.demo { height: 232px; background: linear-gradient(160deg, var(--cream), #efe3d1); padding: 20px; display: grid; align-items: center; border-bottom: 1px solid var(--sand); overflow: hidden; }
+.ex-body { padding: 22px 24px 24px; display: grid; gap: 8px; align-content: start; }
+.ex-tag { font: 600 11.5px/1 var(--f-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--caramel); }
+.ex-body h3 { font-size: 23px; line-height: 1.2; }
+.ex-body p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.cap { display: block; font-size: 10.5px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+.mk-dash, .mk-book, .mk-alerts, .mk-flow, .mk-docs { background: var(--white); border: 1px solid var(--sand); border-radius: 12px; padding: 14px; box-shadow: 0 10px 24px -18px rgba(58, 42, 32, .5); }
+.mini-kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.mini-kpi div { background: var(--ivory); border-radius: 8px; padding: 8px 10px; }
+.mini-kpi small { display: block; font-size: 10px; color: var(--muted); }
+.mini-kpi b { font: 500 19px/1.2 var(--f-serif); color: var(--walnut-dark); }
+.mk-dash svg { display: block; width: 100%; height: 62px; }
+.days { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 10px; }
+.days span { font-size: 10.5px; text-align: center; padding: 6px 0; border-radius: 8px; background: var(--ivory); color: var(--muted); }
+.days span.on { background: var(--walnut); color: var(--ivory); }
+.slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 10px; }
+.slots span { font-size: 11px; text-align: center; padding: 5px 0; border-radius: 7px; border: 1px solid var(--sand); color: var(--ink); font-variant-numeric: tabular-nums; }
+.slots span.x { color: #c4b39c; text-decoration: line-through; border-style: dashed; }
+.slots span.on { background: #e6ecdc; border-color: #b9c6a7; color: #4f6a3c; font-weight: 600; }
+.cbtn { display: block; text-align: center; font: 600 11.5px/1 var(--f-sans); color: var(--ivory); background: var(--walnut); border-radius: 999px; padding: 9px; }
+.mk-alerts { display: grid; gap: 0; padding: 6px 14px; }
+.al { display: grid; grid-template-columns: 8px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid #efe5d6; }
+.al:last-child { border-bottom: 0; }
+.al .dot { width: 8px; height: 8px; border-radius: 50%; background: #7f8b6b; }
+.al .dot.warn { background: var(--caramel); }
+.al b { display: block; font-size: 12px; color: var(--walnut-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.al small { display: block; font-size: 10.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.al em { font: 600 10px/1 var(--f-sans); font-style: normal; padding: 5px 8px; border-radius: 999px; background: #e6ecdc; color: #4f6a3c; white-space: nowrap; }
+.al em.warn { background: #f4e5d2; color: #8a5a2b; }
+.mk-flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; position: relative; }
+.fn { background: var(--ivory); border: 1px solid var(--sand); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; min-width: 0; }
+.fn .fi { margin-bottom: 6px; width: 22px; height: 22px; border-radius: 50%; background: #e6ecdc; color: #4f6a3c; display: grid; place-items: center; }
+.fn b { font-size: 12px; color: var(--walnut-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fn small { font-size: 10.5px; color: var(--muted); }
+.fn:nth-child(4) { background: var(--walnut); border-color: var(--walnut); }
+.fn:nth-child(4) b { color: var(--ivory); }
+.fn:nth-child(4) small { color: #e2d3bf; }
+.fn:nth-child(4) .fi { background: rgba(255,255,255,.18); color: var(--ivory); }
+.mk-site { display: grid; place-items: center; }
+.phone { width: 150px; height: 196px; border-radius: 20px; background: var(--walnut-dark); padding: 7px; box-shadow: 0 16px 30px -16px rgba(58, 42, 32, .6); display: grid; grid-template-rows: auto 1fr auto; gap: 0; overflow: hidden; }
+.phone > div { background: var(--ivory); }
+.ph-top { border-radius: 14px 14px 0 0; padding: 9px 10px 7px; display: flex; justify-content: space-between; align-items: center; }
+.ph-top b { font: italic 500 11px/1 var(--f-serif); color: var(--walnut-dark); }
+.ph-top i { width: 12px; height: 2px; background: var(--walnut); box-shadow: 0 -4px 0 var(--walnut), 0 4px 0 var(--walnut); }
+.ph-hero { padding: 12px 10px; background: linear-gradient(160deg, #efe3d1, var(--ivory)) !important; display: grid; gap: 9px; align-content: center; }
+.ph-hero b { font: 500 15px/1.15 var(--f-serif); color: var(--walnut-dark); }
+.ph-hero span { justify-self: start; font: 600 8.5px/1 var(--f-sans); color: var(--ivory); background: var(--walnut); border-radius: 999px; padding: 6px 9px; }
+.ph-feats { border-radius: 0 0 14px 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 8px; }
+.ph-feats span { font-size: 7.5px; text-align: center; color: var(--muted); background: var(--cream); border-radius: 6px; padding: 6px 0; }
+.mk-docs { display: grid; gap: 8px; }
+.doc { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; gap: 9px; align-items: center; }
+.fic { width: 16px; height: 20px; border-radius: 3px; background: var(--cream); border: 1px solid var(--sand); position: relative; }
+.fic::after { content: ""; position: absolute; left: 3px; right: 3px; top: 6px; height: 1.5px; background: var(--sand); box-shadow: 0 4px 0 var(--sand); }
+.doc b { font-size: 11.5px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mk-docs .up { margin-top: 4px; text-align: center; font: 600 11px/1 var(--f-sans); color: var(--walnut); border: 1.5px dashed var(--sand); border-radius: 10px; padding: 10px; }
+.ex-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 24px; text-align: center; }
+.ex-cta p { margin: 0; font: italic 500 22px/1.3 var(--f-serif); color: var(--walnut-dark); text-wrap: balance; }
+
+@media (max-width: 1200px) {
+  nav.links > a:not(.btn) { display: none; }
+  .facts b { font-size: 30px; }
 }
-
-@media (max-width: 960px) {
-  .hero, .case, .bg, .contact .inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .svc { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1000px) {
+  .hero .wrap, .quote, .contact .wrap, .faqwrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .faqwrap .head { position: static; }
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .steps li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; align-items: baseline; }
+  .steps li::before { grid-row: span 2; margin: 0; }
+  .works { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reason h3 { white-space: normal; }
+  .reasons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .client:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--sand); }
+  .facts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts .wrap > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts .wrap > div:nth-child(n+3) { border-top: 1px solid var(--sand); }
+  .examples { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .notif { left: 18px; }
 }
-@media (max-width: 520px) {
-  nav.top ul { gap: 14px; }
-  .steps { grid-template-columns: minmax(0, 1fr); }
-  section.block { padding-block: 52px; }
+@media (max-width: 680px) {
+  section.band { padding-block: 68px; }
+  .services, .reasons, .clients, .steps, .works, form.req .row { grid-template-columns: minmax(0, 1fr); }
+  .cta .btn { width: 100%; }
+  .facts b { font-size: clamp(19px, 5.6vw, 26px); white-space: nowrap; }
+  .facts span { font-size: 13.5px; line-height: 1.45; display: block; margin-top: 4px; }
+  footer.foot .wrap { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  footer.foot .fl { justify-content: center; }
+  .direct span { font-size: 16px; }
+  .client:nth-child(even) { padding-left: 0; border-left: 0; }
+  .hero .wrap { padding-block: 44px 48px; }
+  .brand small { display: none; }
+  .brand span { font-size: 13.5px; }
+  nav.links .btn { padding: 10px 14px; font-size: 13px; }
+  nav.links { gap: 10px; }
+  .lang a { padding: 6px 7px; }
+  .lang a span { display: none; }
+  .xl { display: none; }
+  .svc { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .svc .ex { grid-column: 1; }
+  .ico { grid-row: auto; margin-bottom: 8px; }
+  .contact .wrap { padding-block: 68px; }
+  form.req { padding: 22px; }
+  .examples { grid-template-columns: minmax(0, 1fr); }
+  .notif { position: relative; left: auto; bottom: auto; width: auto; margin: -20px 12px 0; }
+  .hero .note { margin-top: 12px; }
+  .dash { padding: 14px 14px 34px; gap: 12px; }
+  .kpis { gap: 6px; }
+  .kpis > div { padding: 8px 9px; }
+  .kpis b { font-size: 17px; }
+  .orow { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .orow span:nth-of-type(1) { display: none; }
+  .ex-cta .btn { width: 100%; }
+  .ex-cta p { font-size: 20px; }
+  .demo { padding: 16px; }
+  .mk-dash, .mk-book, .mk-flow, .mk-docs { padding: 12px; }
+  .mk-alerts { padding: 4px 12px; }
 }
 </style>
 </head>
 <body>
-<header class="band">
+<header class="top">
   <div class="wrap">
-    <nav class="top" aria-label="Sezioni">
-      <a class="name" href="#top">LUCIANO SALIERNO</a>
-      <ul>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#metodo">Come lavoro</a></li>
-        <li><a href="#contatti">Contatti</a></li>
-      </ul>
-    </nav>
-    <div class="hero" id="top">
-      <div>
-        <span class="eyebrow">Sviluppatore freelance · Roma</span>
-        <h1>Siti, automazioni e strumenti su misura per <em>aziende, studi ed enti locali</em>.</h1>
-        <p class="lead">Trasformo lavoro manuale e informazioni sparse in strumenti semplici da usare: un sito, un calendario, un report che si aggiorna da solo.</p>
-        <p class="who">Da oltre 10 anni sviluppo software aziendale per grandi gruppi industriali. Oggi porto lo stesso metodo in progetti a prezzo fisso, consegnati funzionanti e documentati.</p>
-        <div class="cta">
-          <a class="btn primary" href="#contatti">Raccontami il tuo progetto</a>
-          <a class="btn ghost" href="#servizi">Scopri i servizi</a>
-        </div>
+    <a class="brand" href="#inizio" aria-label="Luciano Salierno, torna all'inizio">
+      <span class="mono" aria-hidden="true">LS</span>
+      <span>LUCIANO SALIERNO<small>Sviluppo web, automazioni e dati</small></span>
+    </a>
+    <nav class="links" aria-label="Sezioni">
+      <a href="#servizi">Servizi</a>
+      <a href="#esempi">Esempi</a>
+      <a href="#perche">Perché io</a>
+      <a href="#esperienza">Esperienza</a>
+      <a href="#metodo">Come lavoro</a>
+      <a href="#domande">Domande</a>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <a class="on" aria-current="page" href="https://www.lucianosalierno.it/" hreflang="it" lang="it" title="Italiano"><svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg><span>IT</span></a>
+        <a href="https://www.lucianosalierno.com/" hreflang="en" lang="en" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span>EN</span></a>
       </div>
-      <figure class="shot" style="margin:0" aria-describedby="nota-esempio">
-        <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="mock" role="img" aria-label="Esempio di calendario automatico: scadenze, report, bandi e attività colorati per tipo">
-          <div class="mh"><span class="mt">Novembre <i>2026</i></span><span class="leg"><span style="--c:#c2410c">Scadenze</span><span style="--c:#2f6aa8">Report</span><span style="--c:#a16207">Appuntamenti</span><span style="--c:#2f7d4f">Bandi e avvisi</span></span></div>
-          <div class="mgrid" aria-hidden="true"><div class="dw">Lun</div><div class="dw">Mar</div><div class="dw">Mer</div><div class="dw">Gio</div><div class="dw">Ven</div><div class="dw">Sab</div><div class="dw">Dom</div><div class="mc "><b>2</b></div><div class="mc "><b>3</b><span class="ch" style="--c:#2f6aa8"><span>Report vendite settimanale</span></span><span class="ch" style="--c:#a16207"><span>Scadenza preventivo Rossi</span></span></div><div class="mc "><b>4</b><span class="ch" style="--c:#c2410c"><span>Rinnovo contratto fornitore</span></span></div><div class="mc "><b>5</b><span class="ch" style="--c:#2f7d4f"><span>Bando contributi digitali</span></span><span class="ch" style="--c:#2f6aa8"><span>Import ordini dal portale</span></span><span class=more>+1 altro</span></div><div class="mc "><b>6</b><span class="ch" style="--c:#0e7f86"><span>Backup dati completato</span></span></div><div class="mc we"><b>7</b></div><div class="mc we"><b>8</b></div><div class="mc "><b>9</b><span class="ch" style="--c:#2f6aa8"><span>Report vendite settimanale</span></span><span class="ch" style="--c:#2f7d4f"><span>Nuova gara pubblicata</span></span></div><div class="mc "><b>10</b><span class="ch" style="--c:#a16207"><span>Consegna sito cliente</span></span></div><div class="mc "><b>11</b><span class="ch" style="--c:#c2410c"><span>Scadenza fattura n. 128</span></span><span class="ch" style="--c:#0e7f86"><span>Sincronizzazione magazzino</span></span><span class=more>+2 altri</span></div><div class="mc "><b>12</b><span class="ch" style="--c:#2f7d4f"><span>Permesso edilizio in zona</span></span></div><div class="mc "><b>13</b><span class="ch" style="--c:#a16207"><span>Riunione avanzamento</span></span><span class="ch" style="--c:#2f6aa8"><span>Export dati contabilità</span></span></div><div class="mc we"><b>14</b><span class="ch pr" style="--c:#a16207"><span>Evento associazione</span></span></div><div class="mc we"><b>15</b></div></div>
-        </div>
-      </figure>
-    </div>
-    <p class="nota" id="nota-esempio">Esempio dimostrativo con dati di fantasia.</p>
-    <div class="facts">
-      <div><b>10+ anni</b><span>di sviluppo software aziendale</span></div>
-      <div><b>10+ aziende</b><span>in 7 settori diversi</span></div>
-      <div><b>Prezzo fisso</b><span>perimetro e consegna chiari dall'inizio</span></div>
-      <div><b>IT · EN</b><span>lavoro da remoto in Italia ed Europa</span></div>
-    </div>
+      <a class="btn primary" href="#contatti"><span>Preventivo<span class="xl"> gratuito</span></span></a>
+    </nav>
   </div>
 </header>
 
-<main>
-  <section class="block" id="servizi">
+<main id="inizio">
+  <section class="hero">
     <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">Servizi</span>
-        <h2>Cosa posso fare per te</h2>
-        <p>Progetti piccoli e medi, con un risultato concreto da usare subito. Se non sai in quale voce rientra la tua esigenza, scrivimi lo stesso.</p>
+      <div>
+        <span class="kicker">Sviluppatore freelance · Roma</span>
+        <h1>Strumenti digitali su misura, <em>costruiti con cura</em>.</h1>
+        <p class="lead">Siti web, applicazioni e automazioni per aziende, studi professionali ed enti locali. Ti ascolto, ti propongo la soluzione più semplice che risolve davvero il problema e te la consegno pronta da usare.</p>
+        <ul class="promise">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7f8b6b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Preventivo gratuito</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7f8b6b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Risposta entro 1–2 giorni</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7f8b6b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prezzo fisso, senza sorprese</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="#contatti">Richiedi un preventivo gratuito <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="#servizi">Scopri i servizi</a>
+        </div>
       </div>
-      <div class="services">
-        <div class="svc">
-          <h3>Siti e applicazioni web</h3>
-          <p>Siti di presentazione, aree riservate con accesso tramite utente e password, calendari e prenotazioni, piccoli gestionali e dashboard. Veloci, adatti al telefono, con costi di hosting bassi o nulli.</p>
-          <div class="for"><b>Per</b>piccole e medie imprese, studi, associazioni, società sportive, uffici comunali</div>
+      <div>
+        <div class="stage">
+          <div class="window" role="img" aria-label="Esempio di cruscotto vendite con indicatori, grafico mensile e ultimi ordini">
+            <div class="bar" aria-hidden="true"><i></i><i></i><i></i><b>cruscotto-vendite</b></div>
+            <div class="dash" aria-hidden="true">
+              <div class="dh"><span class="dt">Andamento vendite</span><span class="pill">Aggiornato oggi, 07:00</span></div>
+              <div class="kpis">
+                <div><small>Fatturato</small><b>€ 48.200</b><em>+12%</em></div>
+                <div><small>Ordini</small><b>326</b><em>+8%</em></div>
+                <div><small>Nuovi clienti</small><b>41</b><em>+5</em></div>
+              </div>
+              <div class="chart"><svg viewBox="0 0 300 86" preserveAspectRatio="none" aria-hidden="true"><rect x="0.0" y="33.0" width="19.5" height="53.0" rx="3" fill="#d9c7ae"/><rect x="25.5" y="27.9" width="19.5" height="58.1" rx="3" fill="#d9c7ae"/><rect x="51.0" y="29.6" width="19.5" height="56.4" rx="3" fill="#d9c7ae"/><rect x="76.5" y="21.1" width="19.5" height="64.9" rx="3" fill="#d9c7ae"/><rect x="102.0" y="24.5" width="19.5" height="61.5" rx="3" fill="#d9c7ae"/><rect x="127.5" y="16.0" width="19.5" height="70.0" rx="3" fill="#d9c7ae"/><rect x="153.0" y="19.4" width="19.5" height="66.6" rx="3" fill="#d9c7ae"/><rect x="178.5" y="26.2" width="19.5" height="59.8" rx="3" fill="#d9c7ae"/><rect x="204.0" y="14.2" width="19.5" height="71.8" rx="3" fill="#d9c7ae"/><rect x="229.5" y="10.8" width="19.5" height="75.2" rx="3" fill="#d9c7ae"/><rect x="255.0" y="4.0" width="19.5" height="82.0" rx="3" fill="#5a4031"/><rect x="280.5" y="7.4" width="19.5" height="78.6" rx="3" fill="#d9c7ae"/></svg><div class="months"><span>G</span><span>F</span><span>M</span><span>A</span><span>M</span><span>G</span><span>L</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div></div>
+              <div class="orders"><div class="orow"><b>Ordine 1043</b><span>Rossi Srl</span><span class="amt">€ 1.240</span><span class="st ok">Spedito</span></div><div class="orow"><b>Ordine 1042</b><span>Studio Verdi</span><span class="amt">€ 860</span><span class="st wait">In preparazione</span></div><div class="orow"><b>Ordine 1041</b><span>Bianchi & C.</span><span class="amt">€ 2.310</span><span class="st ok">Spedito</span></div></div>
+            </div>
+          </div>
+          <div class="notif" aria-hidden="true"><span class="nic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Nuovo bando pubblicato</b><small>Contributi digitali per le PMI</small></span><em>ora</em></div>
         </div>
-        <div class="svc">
-          <h3>Automazione dei processi</h3>
-          <p>Procedure che raccolgono dati da portali, file e caselle email e li trasformano in report, file aggiornati e avvisi. Meno copia e incolla, meno errori, più tempo per il lavoro vero.</p>
-          <div class="for"><b>Per</b>uffici con attività ripetitive su dati e documenti</div>
-        </div>
-        <div class="svc">
-          <h3>Integrazione dati e report</h3>
-          <p>Collegamento tra programmi tramite API e scambio di file (CSV, XML, JSON), pulizia e migrazione dei dati, report e indicatori chiari per chi deve decidere.</p>
-          <div class="for"><b>Per</b>aziende con dati divisi tra più strumenti</div>
-        </div>
-        <div class="svc">
-          <h3>Monitoraggio di dati pubblici</h3>
-          <p>Controllo automatico di albi pretori, ordinanze, bandi, gare e permessi edilizi, ogni giorno. Il risultato arriva come calendario, elenco filtrato o avviso.</p>
-          <div class="for"><b>Per</b>imprese edili, agenzie immobiliari, studi tecnici, polizia locale</div>
-        </div>
-        <div class="svc">
-          <h3>Documentazione e formazione</h3>
-          <p>Specifiche funzionali e tecniche, manuali utente, descrizione dei processi e materiale per corsi, scritti in modo chiaro in italiano o in inglese.</p>
-          <div class="for"><b>Per</b>team che adottano nuovi strumenti o procedure</div>
-        </div>
+        <p class="note">Esempio dimostrativo con dati di fantasia</p>
       </div>
     </div>
   </section>
 
-  <section class="block" id="metodo">
+  <div class="facts">
+    <div class="wrap">
+      <div><b>10+ anni</b><span>di sviluppo software aziendale</span></div>
+      <div><b>10+ aziende</b><span>servite in 7 settori diversi</span></div>
+      <div><b>1 referente</b><span>parli direttamente con me</span></div>
+      <div><b>1–2 giorni</b><span>per il preventivo gratuito</span></div>
+    </div>
+  </div>
+
+  <section class="band" id="servizi">
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">Come lavoro</span>
-        <h2>Dalla prima chiamata alla consegna</h2>
-        <p>Sai sempre cosa riceverai, quando e a quale prezzo.</p>
+        <span class="kicker">Servizi</span>
+        <h2>Tutto quello che serve per <em>lavorare meglio</em>, in digitale.</h2>
+        <p>Dal sito che ti presenta ai clienti fino alle procedure che lavorano al posto tuo. Se la tua richiesta non è in elenco, scrivimi lo stesso: valuto ogni idea.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+          <h3>Siti web professionali</h3>
+          <p>Siti di presentazione e pagine dedicate, curati nell'aspetto, veloci e perfetti anche sul telefono. Testi chiari che spiegano cosa fai e invitano a contattarti.</p>
+          <div class="ex"><b>Per esempio:</b> sito per uno studio, un'attività locale, un professionista.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span>
+          <h3>Applicazioni web su misura</h3>
+          <p>Aree riservate con accesso tramite utente e password, prenotazioni, calendari condivisi, piccoli gestionali costruiti intorno al tuo modo di lavorare.</p>
+          <div class="ex"><b>Per esempio:</b> agenda appuntamenti, archivio pratiche, portale per i clienti.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M12 8v4l3 2"/></svg></span>
+          <h3>Automazione dei processi</h3>
+          <p>Le attività ripetitive le fa il computer: raccolta di dati da portali, file ed email, report pronti e avvisi automatici. Meno copia e incolla, meno errori.</p>
+          <div class="ex"><b>Per esempio:</b> report vendite ogni lunedì, promemoria delle scadenze.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <h3>Integrazione dati e cruscotti</h3>
+          <p>Collego i programmi che usi già e trasformo i dati sparsi in cruscotti chiari, aggiornati da soli, per decidere con i numeri sotto gli occhi.</p>
+          <div class="ex"><b>Per esempio:</b> unire i file Excel dei vari reparti, indicatori aggiornati ogni giorno.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg></span>
+          <h3>Monitoraggio di dati pubblici</h3>
+          <p>Bandi, gare, albi pretori, ordinanze e permessi edilizi controllati ogni giorno al posto tuo. Ricevi solo quello che ti interessa, in un calendario o in un avviso.</p>
+          <div class="ex"><b>Per esempio:</b> nuove gare nel tuo settore, cantieri e lavori nella tua zona.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></span>
+          <h3>Excel e strumenti che usi già</h3>
+          <p>Sistemo, velocizzo e rendo affidabili fogli di calcolo e procedure esistenti. Quando conviene, li trasformo in un'applicazione vera, più semplice da usare.</p>
+          <div class="ex"><b>Per esempio:</b> un file che si blocca, un preventivatore, un archivio da riordinare.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6M8 11h6"/></svg></span>
+          <h3>Documentazione e formazione</h3>
+          <p>Manuali, procedure, specifiche e corsi scritti in modo chiaro, in italiano o in inglese, perché le persone sappiano usare davvero gli strumenti.</p>
+          <div class="ex"><b>Per esempio:</b> guida per i colleghi, procedura operativa, mini-corso interno.</div>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5Z"/></svg></span>
+          <h3>Assistenza e manutenzione</h3>
+          <p>Aggiornamenti, piccole modifiche e supporto anche dopo la consegna, quando ti servono. Puoi contare su di me nel tempo, non solo per il primo rilascio.</p>
+          <div class="ex"><b>Per esempio:</b> nuova pagina, nuovo campo nel gestionale, controllo periodico.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="esempi">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Esempi</span>
+        <h2>Qualche idea di <em>cosa posso costruire</em> per te.</h2>
+        <p>Esempi dimostrativi, con dati di fantasia, del tipo di strumenti che realizzo. Ogni progetto vero nasce dalle tue esigenze e viene costruito su misura.</p>
+      </div>
+      <div class="examples">
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-dash"><div class="mini-kpi"><div><small>Incassi</small><b>€ 31.900</b></div><div><small>Margine</small><b>24%</b></div></div><small class="cap">Vendite per mese</small><svg viewBox="0 0 260 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,64.0 L23.6,56.4 L47.3,61.5 L70.9,48.7 L94.5,51.3 L118.2,38.5 L141.8,41.1 L165.5,28.4 L189.1,30.9 L212.7,20.7 L236.4,15.6 L260.0,8.0 L260,70 L0,70 Z" fill="rgba(127,139,107,.18)"/><path d="M0.0,64.0 L23.6,56.4 L47.3,61.5 L70.9,48.7 L94.5,51.3 L118.2,38.5 L141.8,41.1 L165.5,28.4 L189.1,30.9 L212.7,20.7 L236.4,15.6 L260.0,8.0" fill="none" stroke="#7f8b6b" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="260.0" cy="8.0" r="3.5" fill="#7f8b6b"/></svg></div></div>
+          <div class="ex-body"><span class="ex-tag">Dati · Report</span><h3>Cruscotto per la direzione</h3><p>Vendite, incassi e ordini in un'unica schermata, aggiornati da soli ogni mattina.</p></div>
+        </article>
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-book"><small class="cap">Scegli l'orario</small><div class="days"><span class="">Lun 9</span><span class="">Mar 10</span><span class="on">Mer 11</span><span class="">Gio 12</span></div><div class="slots"><span class="x">09:00</span><span class="">10:00</span><span class="on">11:00</span><span class="">15:00</span><span class="x">16:00</span><span class="">17:00</span></div><span class="cbtn">Conferma prenotazione</span></div></div>
+          <div class="ex-body"><span class="ex-tag">Applicazione web</span><h3>Prenotazioni online</h3><p>I clienti scelgono giorno e orario, tu ricevi la conferma e il promemoria parte da solo.</p></div>
+        </article>
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-alerts"><div class="al"><span class="dot"></span><span><b>Contributi digitali PMI</b><small>Regione · scade tra 12 giorni</small></span><em class="">Nuovo</em></div><div class="al"><span class="dot"></span><span><b>Manutenzione strade</b><small>Gara d'appalto · € 180.000</small></span><em class="">Nuovo</em></div><div class="al"><span class="dot warn"></span><span><b>Efficienza energetica</b><small>Bando · scade tra 5 giorni</small></span><em class="warn">In scadenza</em></div></div></div>
+          <div class="ex-body"><span class="ex-tag">Automazione · Dati pubblici</span><h3>Avvisi su bandi e gare</h3><p>Controllo automatico dei portali pubblici: ricevi solo quello che riguarda il tuo settore.</p></div>
+        </article>
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-flow"><div class="fn"><span class="fi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Email ordini</b><small>ogni giorno</small></div><div class="fn"><span class="fi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Elaborazione</b><small>automatica</small></div><div class="fn"><span class="fi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Report Excel</b><small>pronto</small></div><div class="fn"><span class="fi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b>Invio al team</b><small>lunedì 08:00</small></div></div></div>
+          <div class="ex-body"><span class="ex-tag">Automazione</span><h3>Report automatico</h3><p>Gli ordini che arrivano via email diventano un report ordinato, inviato al team ogni lunedì.</p></div>
+        </article>
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-site"><div class="phone"><div class="ph-top"><b>Studio Bianchi</b><i></i></div><div class="ph-hero"><b>Il tuo sorriso, in buone mani.</b><span>Prenota una visita</span></div><div class="ph-feats"><span>Orari</span><span>Servizi</span><span>Dove siamo</span></div></div></div></div>
+          <div class="ex-body"><span class="ex-tag">Sito web</span><h3>Sito per un'attività locale</h3><p>Elegante, veloce, perfetto sul telefono e pensato per farti contattare.</p></div>
+        </article>
+        <article class="ex-card">
+          <div class="demo" aria-hidden="true"><div class="mk-docs"><div class="doc"><span class="fic"></span><b>Dichiarazione 2026.pdf</b><span class="st ok">Completato</span></div><div class="doc"><span class="fic"></span><b>Fatture ottobre.zip</b><span class="st wait">In lavorazione</span></div><div class="doc"><span class="fic"></span><b>Contratto affitto.pdf</b><span class="st new">Ricevuto</span></div><span class="up">+ Carica documento</span></div></div>
+          <div class="ex-body"><span class="ex-tag">Area riservata</span><h3>Portale clienti</h3><p>Un'area riservata dove i clienti caricano documenti e seguono lo stato delle pratiche.</p></div>
+        </article>
+      </div>
+      <div class="ex-cta"><p>Ti piacerebbe qualcosa di simile per la tua attività?</p><a class="btn primary" href="#contatti">Parliamone, il preventivo è gratuito <span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <section class="band" id="perche">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Perché scegliere me</span>
+        <h2>La serietà di una grande azienda, <em>la vicinanza di un professionista</em>.</h2>
+      </div>
+      <div class="reasons">
+        <div class="reason"><span class="num">Esperienza</span><h3>Dieci anni di esperienza</h3><p>Ho lavorato per grandi gruppi nei settori farmaceutico, energetico, delle telecomunicazioni e dei trasporti. Porto lo stesso rigore anche nei progetti più piccoli.</p></div>
+        <div class="reason"><span class="num">Chiarezza</span><h3>Prezzi chiari e fissi</h3><p>Prima di iniziare sai cosa riceverai, quando e quanto spendi. Il prezzo concordato non cambia, salvo nuove richieste decise insieme.</p></div>
+        <div class="reason"><span class="num">Rapporto diretto</span><h3>Un solo referente, sempre</h3><p>Niente intermediari: parli con chi progetta e realizza il lavoro, e ricevi risposte rapide e concrete.</p></div>
+        <div class="reason"><span class="num">Semplicità</span><h3>Soluzioni semplici e durature</h3><p>Scelgo la strada più semplice che risolve davvero il problema, con costi di gestione bassi o nulli e niente complicazioni inutili.</p></div>
+        <div class="reason"><span class="num">Libertà</span><h3>Tutto resta tuo</h3><p>Codice, dati e documentazione sono tuoi. Ricevi istruzioni chiare e non resti mai legato a me per forza.</p></div>
+        <div class="reason"><span class="num">Riservatezza</span><h3>Cura dei tuoi dati</h3><p>Sono abituato a lavorare con dati sensibili e sistemi critici: accessi protetti, dati cifrati quando serve, massima discrezione.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="esperienza">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Esperienza</span>
+        <h2>Dieci anni di progetti <em>per grandi aziende</em>.</h2>
+        <p>Prima di offrire i miei servizi in proprio ho sviluppato per oltre dieci anni software gestionale per grandi gruppi italiani e internazionali. Ecco alcuni dei lavori che ho svolto.</p>
+      </div>
+      <div class="works">
+        <div class="work"><h3>Scambio automatico di dati</h3><p>Collegamenti tra i sistemi dell'azienda e quelli di clienti e fornitori, per ordini, spedizioni e documenti senza inserimenti a mano.</p><span>Beni di consumo · Telecomunicazioni</span></div>
+        <div class="work"><h3>Fatturazione elettronica</h3><p>Generazione e controllo automatico delle fatture elettroniche secondo gli standard europei, integrate nei processi di vendita.</p><span>Industria · Beni di consumo</span></div>
+        <div class="work"><h3>Report per la direzione</h3><p>Report, estrazioni e cruscotti per finanza, acquisti e vendite, costruiti su grandi volumi di dati e aggiornati in automatico.</p><span>Farmaceutico · Trasporti</span></div>
+        <div class="work"><h3>Budget e pianificazione</h3><p>Strumenti per budget, previsioni e consolidamento dei conti di gruppo, usati ogni mese dai reparti finanziari.</p><span>Farmaceutico</span></div>
+        <div class="work"><h3>Passaggio a nuovi sistemi</h3><p>Migrazione di dati e programmi dai vecchi gestionali ai nuovi, con verifiche, collaudi e affiancamento agli utenti.</p><span>Farmaceutico · Energia</span></div>
+        <div class="work"><h3>Dati riservati del personale</h3><p>Procedure per la gestione del personale su informazioni sensibili, con controlli rigorosi su accessi e qualità dei dati.</p><span>Istituzioni pubbliche</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="clienti">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Per chi lavoro</span>
+        <h2>Ogni attività ha un lavoro ripetitivo <em>che può diventare semplice</em>.</h2>
+      </div>
+      <div class="clients">
+        <div class="client"><h3>Studi professionali</h3><p>Commercialisti, avvocati, tecnici: scadenzari, aree clienti, raccolta documenti, sito di presentazione.</p></div>
+        <div class="client"><h3>Imprese edili e immobiliari</h3><p>Avvisi su bandi, gare e permessi edilizi, schede immobili, gestione cantieri e appuntamenti.</p></div>
+        <div class="client"><h3>Negozi e attività locali</h3><p>Sito curato, prenotazioni online, catalogo prodotti, promemoria per i clienti.</p></div>
+        <div class="client"><h3>Associazioni e società sportive</h3><p>Iscrizioni, calendari di eventi e allenamenti, area riservata per soci e allenatori.</p></div>
+        <div class="client"><h3>Enti locali e uffici comunali</h3><p>Calendari di atti e ordinanze, strumenti interni per gli uffici, raccolta e lettura dei dati.</p></div>
+        <div class="client"><h3>Piccole e medie imprese</h3><p>Report automatici, integrazione tra programmi, cruscotti per la direzione, documentazione dei processi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="metodo">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Come lavoro</span>
+        <h2>Dalla prima chiacchierata <em>alla consegna</em>, senza sorprese.</h2>
       </div>
       <ol class="steps">
-        <li><h3>Chiamata</h3><p>Parliamo di cosa ti serve e del risultato che ti aspetti.</p></li>
-        <li><h3>Proposta</h3><p>Perimetro scritto, prezzo fisso e data di consegna.</p></li>
-        <li><h3>Sviluppo</h3><p>Anteprime funzionanti a tappe concordate.</p></li>
-        <li><h3>Consegna</h3><p>Messa online, documentazione e passaggio di consegne.</p></li>
-        <li><h3>Assistenza</h3><p>Manutenzione e modifiche, se e quando ti servono.</p></li>
+        <li><h3>Raccontami l'idea</h3><p>Una telefonata o due righe via email. Anche se non sai ancora bene cosa ti serve.</p></li>
+        <li class="key"><h3>Preventivo gratuito</h3><p>Entro 1–2 giorni: cosa realizzo, in quanto tempo, a prezzo fisso.</p></li>
+        <li><h3>Sviluppo condiviso</h3><p>Ti mostro anteprime funzionanti lungo la strada, per correggere subito la rotta.</p></li>
+        <li><h3>Consegna</h3><p>Messa online, istruzioni chiare e un breve passaggio di consegne.</p></li>
+        <li><h3>Al tuo fianco</h3><p>Assistenza e modifiche quando ti servono, anche dopo mesi.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="block" id="esperienza">
-    <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">Esperienza</span>
-        <h2>Dieci anni di software aziendale alle spalle</h2>
+  <section class="band" id="preventivo">
+    <div class="wrap quote">
+      <div class="head" style="margin:0">
+        <span class="kicker">Il preventivo</span>
+        <h2>Gratuito, senza impegno, <em>in 1–2 giorni</em>.</h2>
+        <p>Ogni progetto è diverso, per questo non trovi listini generici. Mi racconti cosa ti serve e ricevi una proposta scritta su misura, con un prezzo che non cambia strada facendo.</p>
+        <div class="cta" style="margin-top:8px"><a class="btn primary" href="#contatti">Chiedi il tuo preventivo <span class="arr" aria-hidden="true">→</span></a></div>
       </div>
-      <div class="bg">
-        <div class="col">
-          <p>Da oltre dieci anni sviluppo e mantengo software su piattaforma SAP per grandi gruppi italiani e internazionali, tramite società di consulenza: programmi, interfacce tra sistemi, migrazioni di dati e reportistica.</p>
-          <p>Da questo lavoro arrivano le abitudini che porto in ogni progetto: capire bene la richiesta prima di scrivere codice, cercare la causa dei problemi invece di nasconderli, documentare quello che consegno e trattare con cura i dati sensibili.</p>
-        </div>
-        <div class="col">
-          <h3>Settori</h3>
-          <div class="chips"><span>Farmaceutico</span><span>Energia</span><span>Telecomunicazioni</span><span>Trasporti</span><span>Aerospazio</span><span>Beni di consumo</span><span>Pubblica amministrazione</span></div>
-          <h3>Competenze</h3>
-          <div class="chips"><span>Analisi dei requisiti</span><span>Integrazione tra sistemi</span><span>Qualità dei dati</span><span>Prestazioni</span><span>Sicurezza dei dati</span><span>Documentazione tecnica</span></div>
-        </div>
+      <div class="card">
+        <h3>Nel preventivo trovi</h3>
+        <ul class="ticks">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cosa realizzo, descritto in parole semplici</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>I tempi di consegna e le tappe intermedie</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Il prezzo fisso, tutto compreso</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gli eventuali costi di gestione, se ci sono</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cosa ti consegno alla fine e come potrai usarlo</span></li>
+        </ul>
+        <span class="free">Nessun costo, nessun obbligo.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="domande">
+    <div class="wrap faqwrap">
+      <div class="head">
+        <span class="kicker">Domande frequenti</span>
+        <h2>Le risposte alle <em>domande più comuni</em>.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Quanto costa un sito o un'applicazione?</summary><p>Dipende da cosa ti serve: un sito di presentazione e un gestionale sono lavori molto diversi. Per questo il preventivo è gratuito e a prezzo fisso: sai la cifra prima di iniziare e non cambia, salvo nuove richieste che decidiamo insieme.</p></details>
+        <details><summary>Accetti anche lavori piccoli?</summary><p>Sì. Anche una modifica a un foglio Excel, una singola pagina o un piccolo automatismo possono farti risparmiare ore ogni settimana. Scrivimi qualsiasi richiesta.</p></details>
+        <details><summary>In quanto tempo ricevo il preventivo?</summary><p>Entro 1–2 giorni dalla tua richiesta. Se ho bisogno di qualche dettaglio in più, ti faccio prima un paio di domande veloci.</p></details>
+        <details><summary>Quanto tempo serve per realizzare il lavoro?</summary><p>I tempi sono scritti nel preventivo e dipendono dal progetto. Durante lo sviluppo ti mostro anteprime funzionanti, così vedi i progressi e puoi chiedere aggiustamenti subito.</p></details>
+        <details><summary>Lavori solo a Roma?</summary><p>Lavoro da remoto con clienti in tutta Italia. A Roma e dintorni possiamo anche incontrarci di persona.</p></details>
+        <details><summary>A chi appartengono il sito e i dati?</summary><p>A te. Codice, contenuti, dati e documentazione restano di tua proprietà, e ti spiego come gestirli anche senza di me.</p></details>
+        <details><summary>Quanto costa mantenerlo online?</summary><p>Spesso pochissimo o niente: scelgo soluzioni con costi di gestione bassi. Se ci sono costi, come il dominio o un servizio esterno, li trovi indicati nel preventivo.</p></details>
+        <details><summary>E dopo la consegna?</summary><p>Ti lascio istruzioni chiare e resto disponibile per assistenza, aggiornamenti e nuove funzioni, quando ti servono.</p></details>
+        <details><summary>Emetti fattura?</summary><p>Sì, lavoro con partita IVA ed emetto regolare fattura elettronica.</p></details>
       </div>
     </div>
   </section>
 </main>
 
 <section class="contact" id="contatti">
-  <div class="wrap inner">
+  <div class="wrap">
     <div>
-      <span class="eyebrow">Contatti</span>
-      <h2>Hai un'attività ripetitiva o un'idea da trasformare in uno strumento?</h2>
-      <p>Scrivimi due righe su cosa ti serve: ti rispondo con qualche domanda e, se fa al caso tuo, con una proposta scritta a prezzo fisso.</p>
-    </div>
-    <div class="mailbox">
-      <span class="lab">Email</span>
-      <span class="addr" id="addr">luciano.salierno.work@gmail.com</span>
-      <span class="lab">Telefono</span>
-      <a class="addr tel" href="tel:+393899818719">+39 389 981 8719</a>
-      <div class="row">
-        <a class="btn primary" href="mailto:luciano.salierno.work@gmail.com?subject=Richiesta%20informazioni">Scrivi un'email</a>
-        <a class="btn copy" href="tel:+393899818719">Chiama</a>
-        <button class="btn copy" type="button" id="copia">Copia email</button>
+      <span class="kicker">Contatti</span>
+      <h2>Parliamo del tuo progetto, <em>il preventivo è gratuito</em>.</h2>
+      <p class="lead">Scrivimi o chiamami per qualsiasi richiesta, anche se non sai ancora bene cosa ti serve. Entro 1–2 giorni ricevi una risposta con una proposta concreta.</p>
+      <div class="direct">
+        <a href="mailto:luciano.salierno.work@gmail.com?subject=Richiesta%20preventivo"><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Email</small><span id="addr">luciano.salierno.work@gmail.com</span></span></a>
+        <a href="tel:+393899818719"><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span><small>Telefono</small><span>+39 389 981 8719</span></span></a>
       </div>
-      <small id="esito" aria-live="polite">Lavoro da remoto; per i progetti nella zona di Roma possiamo incontrarci.</small>
+      <span class="badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9b48a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preventivo gratuito entro 1–2 giorni</span>
     </div>
+    <form class="req" id="richiesta" novalidate>
+      <h3>Richiedi un preventivo</h3>
+      <div class="row">
+        <label for="nome">Nome e cognome<input id="nome" name="nome" autocomplete="name" required></label>
+        <label for="recapito">Email o telefono<input id="recapito" name="recapito" autocomplete="email" required></label>
+      </div>
+      <label for="tipo">Di cosa hai bisogno
+        <select id="tipo" name="tipo">
+          <option>Un sito web</option>
+          <option>Un'applicazione su misura</option>
+          <option>Automatizzare un'attività</option>
+          <option>Dati, report o cruscotti</option>
+          <option>Monitoraggio di bandi o dati pubblici</option>
+          <option>Sistemare Excel o strumenti esistenti</option>
+          <option>Documentazione o formazione</option>
+          <option>Altro / non lo so ancora</option>
+        </select>
+      </label>
+      <label for="msg">Raccontami in due righe<textarea id="msg" name="msg" placeholder="Cosa ti serve, chi lo userà, eventuali scadenze…"></textarea></label>
+      <button class="btn primary" type="submit">Prepara l'email di richiesta <span class="arr" aria-hidden="true">→</span></button>
+      <small id="esito" aria-live="polite">Il pulsante apre il tuo programma di posta con il messaggio già scritto: ti basta premere Invia.</small>
+    </form>
   </div>
 </section>
 
-<footer class="wrap foot">
-  <span>© <span id="anno">2026</span> Luciano Salierno · Roma · P.IVA 16494231000</span>
-  <span>Sviluppo software, automazione e integrazione dati</span>
+<footer class="foot">
+  <div class="wrap">
+    <div class="fl"><span>© <span id="anno">2026</span> Luciano Salierno · Roma</span><span>P.IVA 16494231000</span></div>
+    <div class="fl"><a href="mailto:luciano.salierno.work@gmail.com">luciano.salierno.work@gmail.com</a><a href="tel:+393899818719">+39 389 981 8719</a></div>
+  </div>
 </footer>
 
 <script>
 (() => {
-  const a = document.getElementById("anno"); a.textContent = new Date().getFullYear();
-  const b = document.getElementById("copia"), out = document.getElementById("esito"), addr = document.getElementById("addr");
-  b.addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(addr.textContent.trim()); out.textContent = "Indirizzo copiato."; }
-    catch {
-      const r = document.createRange(); r.selectNodeContents(addr);
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      out.textContent = "Indirizzo selezionato: copialo con Ctrl+C.";
-    }
+  document.getElementById("anno").textContent = new Date().getFullYear();
+  const f = document.getElementById("richiesta"), out = document.getElementById("esito");
+  f.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nome = f.nome.value.trim(), rec = f.recapito.value.trim();
+    if (!nome || !rec) { out.textContent = "Inserisci nome e un recapito, così posso risponderti."; (nome ? f.recapito : f.nome).focus(); return; }
+    const corpo = `Ciao Luciano,\n\nvorrei un preventivo per: ${f.tipo.value}.\n\n${f.msg.value.trim() || "(dettagli da definire)"}\n\n${nome}\nRecapito: ${rec}`;
+    location.href = "mailto:luciano.salierno.work@gmail.com?subject=" + encodeURIComponent("Richiesta preventivo – " + f.tipo.value) + "&body=" + encodeURIComponent(corpo);
+    out.textContent = "Si sta aprendo il tuo programma di posta. Se non si apre, scrivimi a luciano.salierno.work@gmail.com.";
   });
 })();
 </script>
