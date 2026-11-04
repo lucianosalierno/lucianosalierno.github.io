@@ -707,6 +707,7 @@ footer.foot .fl > * { white-space: nowrap; }
       [T.k[3]]: f.msg.value.trim() || T.none, [T.k[4]]: T.lang
     };
     if (isMail) { data.email = rec; data.replyto = rec; }
+    else { data.subject = "\uD83D\uDCDE DA RICHIAMARE – " + data.subject; data["Come rispondere"] = "Ha lasciato solo il telefono: chiamalo o scrivigli su WhatsApp"; }
     btn.disabled = true; bl.textContent = T.sending; say("", "");
     try {
       const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
