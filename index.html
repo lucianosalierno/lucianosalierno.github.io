@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Luciano Salierno</title>
+<meta name="description" content="Siti, web app, automazioni e integrazione dati per aziende, studi professionali ed enti locali. Progetti a prezzo fisso, con oltre 10 anni di esperienza nello sviluppo di software aziendale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: banda d'apertura petrolio con riga arancio (come il CV), poi sezioni chiare a colonna larga; il progetto reale è il pezzo forte */
+:root {
+  --bg: #f3f5f5;
+  --surface: #ffffff;
+  --band: #183941;
+  --band-2: #25515b;
+  --band-fg: #e6eef0;
+  --band-muted: #a9bec3;
+  --fg: #172a2f;
+  --muted: #5b6a6e;
+  --line: #d7dfe0;
+  --accent: #e07b32;
+  --accent-ink: #b45d1c;
+  --link: #1f5866;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --wrap: 1120px;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1d21; --surface: #152a30; --band: #0c181b; --band-2: #17343b; --band-fg: #e6eef0; --band-muted: #93aab0;
+    --fg: #e4ecee; --muted: #9aaeb2; --line: #284249; --accent: #f08a45; --accent-ink: #f5a26a; --link: #8fc6d3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1d21; --surface: #152a30; --band: #0c181b; --band-2: #17343b; --band-fg: #e6eef0; --band-muted: #93aab0;
+  --fg: #e4ecee; --muted: #9aaeb2; --line: #284249; --accent: #f08a45; --accent-ink: #f5a26a; --link: #8fc6d3;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--f-body); }
+a { color: var(--link); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+.eyebrow { font: 700 12px/1 var(--f-display); letter-spacing: .18em; text-transform: uppercase; color: var(--accent-ink); }
+.eyebrow::before { content: "/ "; color: var(--accent); }
+
+/* barra superiore e apertura */
+.band { background: linear-gradient(100deg, var(--band), var(--band-2)); color: var(--band-fg); border-bottom: 3px solid var(--accent); }
+.band .eyebrow { color: var(--accent); }
+nav.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+nav.top .name { font: 800 17px/1 var(--f-display); letter-spacing: .14em; color: #fff; text-decoration: none; }
+nav.top ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; flex-wrap: wrap; }
+nav.top ul a { color: var(--band-fg); text-decoration: none; font-weight: 600; font-size: 14px; }
+nav.top ul a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 44px 56px; }
+.hero h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.06; font-weight: 800; letter-spacing: -.015em; color: #fff; margin-top: 14px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: 18px; color: var(--band-fg); margin: 20px 0 0; max-width: 34em; }
+.hero .who { margin-top: 14px; font-size: 15px; color: var(--band-muted); max-width: 36em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: var(--r); font: 700 15px/1.2 var(--f-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; }
+.btn.primary { background: var(--accent); color: #1a1006; }
+.btn.primary:hover { filter: brightness(1.06); }
+.btn.ghost { border-color: rgba(255,255,255,.4); color: #fff; background: transparent; }
+.btn.ghost:hover { border-color: #fff; }
+.shot { margin: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 24px 60px rgba(0,0,0,.35); background: #fff; }
+.shot .bar { display: flex; gap: 6px; padding: 9px 12px; background: #e9eeef; }
+.shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #c3cdd0; }
+.shot img { display: block; width: 100%; height: auto; }
+.hero figcaption { font-size: 13px; color: var(--band-muted); margin-top: 10px; }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,.14); }
+.facts div { padding: 18px 18px 22px 0; }
+.facts b { display: block; font: 800 26px/1.1 var(--f-display); color: #fff; }
+.facts span { font-size: 13.5px; color: var(--band-muted); }
+
+/* sezioni */
+section.block { padding-block: 72px; }
+section.block + section.block { border-top: 1px solid var(--line); }
+.head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 46em; }
+.head h2 { font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; font-weight: 800; letter-spacing: -.01em; }
+.head p { margin: 0; color: var(--muted); font-size: 17px; }
+
+.services { display: grid; gap: 0; border-top: 2px solid var(--fg); }
+.svc { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr) minmax(0, 260px); gap: 28px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.svc h3 { font-size: 20px; line-height: 1.25; font-weight: 700; }
+.svc p { margin: 0; }
+.svc .for { font-size: 14px; color: var(--muted); }
+.svc .for b { display: block; font: 700 11px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 6px; }
+
+.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
+.case h3 { font-size: 24px; line-height: 1.2; font-weight: 800; }
+.case .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+.tag { font: 600 12.5px/1 var(--f-body); padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); }
+.case dl { margin: 0; display: grid; gap: 16px; }
+.case dt { font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
+.case dd { margin: 6px 0 0; }
+.case ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 6px; }
+.case ul li::marker { color: var(--accent); }
+.gallery { display: grid; gap: 16px; }
+.gallery figure { margin: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #f3f4f1; }
+.gallery img { display: block; width: 100%; height: auto; }
+.gallery figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--surface); border-top: 1px solid var(--line); }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; counter-reset: s; }
+.steps li { border-top: 3px solid var(--accent); padding-top: 14px; counter-increment: s; }
+.steps li::before { content: counter(s); font: 800 13px/1 var(--f-display); color: var(--accent-ink); display: block; margin-bottom: 8px; }
+.steps h3 { font-size: 18px; font-weight: 700; }
+.steps p { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+
+.bg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.bg p { margin: 0 0 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chips span { font-size: 14px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.bg h3 { font: 700 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 10px; }
+.bg .col + .col h3:not(:first-child) { margin-top: 26px; }
+
+.contact { background: linear-gradient(100deg, var(--band), var(--band-2)); color: var(--band-fg); border-top: 3px solid var(--accent); }
+.contact .inner { padding-block: 64px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.contact h2 { color: #fff; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.15; font-weight: 800; margin-top: 12px; }
+.contact p { color: var(--band-fg); margin: 14px 0 0; max-width: 36em; }
+.mailbox { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 22px; display: grid; gap: 14px; }
+.mailbox .lab { font: 700 11px/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--band-muted); }
+.mailbox .addr { font: 700 clamp(16px, 2vw, 20px)/1.3 var(--f-body); color: #fff; overflow-wrap: anywhere; user-select: all; }
+.mailbox .row { display: flex; flex-wrap: wrap; gap: 10px; }
+.mailbox .copy { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.mailbox small { color: var(--band-muted); font-size: 13px; }
+
+footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+
+/* anteprime dell'applicazione (resa fissa chiara, come una schermata) */
+.mock { background: #f3f4f1; color: #1d221e; padding: 12px; font-family: var(--f-body); }
+.mock .mh { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.mock .mt { font: 700 16px/1 var(--f-display); }
+.mock .mt i { font-style: normal; color: #5d665f; font-weight: 500; }
+.mock .leg { display: flex; flex-wrap: wrap; gap: 8px; font-size: 10px; color: #5d665f; }
+.mock .leg span::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 2px; background: var(--c); margin-right: 4px; }
+.mgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: #d8dbd3; border: 1px solid #d8dbd3; border-radius: 6px; overflow: hidden; }
+.mgrid .dw { background: #eceee9; font: 700 8.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: #5d665f; padding: 6px 5px; }
+.mc { background: #fff; min-height: 92px; padding: 4px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.mc.we { background: #e9ebe5; }
+.mc.out { opacity: .55; }
+.mc b { font: 600 11px/1.2 var(--f-display); padding: 1px 2px; }
+.ch { display: flex; gap: 4px; align-items: flex-start; font-size: 9.5px; line-height: 1.22; padding: 2px 4px; border-radius: 3px; background: color-mix(in oklab, var(--c) 14%, #fff); min-width: 0; }
+.ch::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--c); flex: none; margin-top: 3px; }
+.ch span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.ch.pr { background: transparent; box-shadow: inset 0 0 0 1.2px var(--c); }
+.ch.pr::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.mc .more { font-size: 9px; color: #5d665f; font-weight: 600; padding: 0 3px; }
+.mock .pt { font: 700 10px/1 var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: #5d665f; margin-bottom: 8px; }
+.prow { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 9px; align-items: start; padding: 7px 4px; border-top: 1px solid #e1e4dd; font-size: 13px; }
+.prow .pd { font: 500 12px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #5d665f; }
+.prow .sw { width: 9px; height: 9px; border-radius: 2px; background: var(--c); margin-top: 5px; }
+.prow b { font-weight: 600; display: block; }
+.prow small { color: #5d665f; font-size: 11.5px; }
+.dcard { background: #fff; border: 1px solid #d8dbd3; border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; }
+.dtag { font: 700 10.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--c); display: flex; align-items: center; gap: 6px; }
+.dtag::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--c); }
+.dcard .dt { font: 700 16px/1.25 var(--f-display); }
+.dcard .dobj { font-size: 12.5px; color: #5d665f; }
+.dfacts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; font-size: 12.5px; }
+.dfacts i { display: block; font: 700 9.5px/1.4 var(--f-body); letter-spacing: .1em; text-transform: uppercase; font-style: normal; color: #5d665f; }
+.dbtn { justify-self: start; background: #23466e; color: #fff; font: 700 12px/1 var(--f-body); padding: 9px 12px; border-radius: 6px; }
+@media (max-width: 560px) {
+  .mc { min-height: 64px; }
+  .ch { font-size: 8px; padding: 1px 3px; }
+  .ch span { -webkit-line-clamp: 1; }
+  .mc .ch:nth-of-type(2), .mock .leg { display: none; }
+}
+
+@media (max-width: 960px) {
+  .hero, .case, .bg, .contact .inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .svc { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  nav.top ul { gap: 14px; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  section.block { padding-block: 52px; }
+}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <nav class="top" aria-label="Sezioni">
+      <a class="name" href="#top">LUCIANO SALIERNO</a>
+      <ul>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#progetto">Progetto</a></li>
+        <li><a href="#metodo">Come lavoro</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+    <div class="hero" id="top">
+      <div>
+        <span class="eyebrow">Sviluppatore freelance · Roma</span>
+        <h1>Siti, automazioni e strumenti su misura per <em>aziende, studi ed enti locali</em>.</h1>
+        <p class="lead">Trasformo lavoro manuale e informazioni sparse in strumenti semplici da usare: un sito, un calendario, un report che si aggiorna da solo.</p>
+        <p class="who">Da oltre 10 anni sviluppo software aziendale per grandi gruppi industriali. Oggi porto lo stesso metodo in progetti a prezzo fisso, consegnati funzionanti e documentati.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contatti">Raccontami il tuo progetto</a>
+          <a class="btn ghost" href="#progetto">Guarda un lavoro reale</a>
+        </div>
+      </div>
+      <figure class="shot" style="margin:0">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="mock" role="img" aria-label="Anteprima del calendario: le ultime due settimane di ottobre con gli atti del Comune colorati per tipo, ordinanze in arancio, determine in blu, convocazioni in ocra, autorizzazioni in verde">
+          <div class="mh"><span class="mt">Ottobre <i>2026</i></span><span class="leg"><span style="--c:#c2410c">Ordinanze</span><span style="--c:#2f6aa8">Determine</span><span style="--c:#a16207">Convocazioni</span><span style="--c:#2f7d4f">Autorizzazioni</span></span></div>
+          <div class="mgrid" aria-hidden="true"><div class="dw">Lun</div><div class="dw">Mar</div><div class="dw">Mer</div><div class="dw">Gio</div><div class="dw">Ven</div><div class="dw">Sab</div><div class="dw">Dom</div><div class="mc "><b>19</b></div><div class="mc "><b>20</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Via Dei Cappuccini</span></span><span class="ch" style="--c:#2f6aa8"><span>Accertamento di entrata</span></span><span class=more>+2 altri</span></div><div class="mc "><b>21</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Via Mezzaselva</span></span><span class="ch" style="--c:#c2410c"><span>Attivazione centro operativo comunale</span></span><span class=more>+1 altri</span></div><div class="mc "><b>22</b><span class="ch" style="--c:#c2410c"><span>Chiusura centro operativo comunale</span></span><span class="ch" style="--c:#a16207"><span>Convocazione commissione consiliare</span></span><span class=more>+5 altri</span></div><div class="mc "><b>23</b><span class="ch" style="--c:#c2410c"><span>Costituzione in giudizio</span></span><span class="ch" style="--c:#0e7f86"><span>Conservazione catasto terreni</span></span><span class=more>+5 altri</span></div><div class="mc we"><b>24</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Piazzale S. Francesco</span></span></div><div class="mc we"><b>25</b><span class="ch pr" style="--c:#c2410c"><span>In vigore: Piazzale S. Francesco</span></span></div><div class="mc "><b>26</b><span class="ch" style="--c:#2f6aa8"><span>Fornitura di spille in argento</span></span></div><div class="mc "><b>27</b><span class="ch" style="--c:#a16207"><span>Convocazione del consiglio comunale</span></span><span class="ch" style="--c:#7e3fb5"><span>Avviso pubblico otto per mille</span></span><span class=more>+25 altri</span></div><div class="mc "><b>28</b><span class="ch" style="--c:#2f6aa8"><span>Servizio trattamento rifiuti</span></span><span class="ch" style="--c:#2f6aa8"><span>Fornitura gas naturale</span></span><span class=more>+19 altri</span></div><div class="mc "><b>29</b><span class="ch" style="--c:#c2410c"><span>Nuova viabilità: pista ciclopedonale</span></span><span class="ch" style="--c:#2f7d4f"><span>Permesso di costruire in sanatoria</span></span><span class=more>+23 altri</span></div><div class="mc "><b>30</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Piazza Regina Margherita</span></span><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: centro storico</span></span><span class=more>+3 altri</span></div><div class="mc we"><b>31</b></div><div class="mc we out"><b>1</b></div></div>
+        </div>
+      </figure>
+    </div>
+    <div class="facts">
+      <div><b>10+ anni</b><span>di sviluppo software aziendale</span></div>
+      <div><b>10+ aziende</b><span>in 7 settori diversi</span></div>
+      <div><b>Prezzo fisso</b><span>perimetro e consegna chiari dall'inizio</span></div>
+      <div><b>IT · EN</b><span>lavoro da remoto in Italia ed Europa</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="servizi">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Servizi</span>
+        <h2>Cosa posso fare per te</h2>
+        <p>Progetti piccoli e medi, con un risultato concreto da usare subito. Se non sai in quale voce rientra la tua esigenza, scrivimi lo stesso.</p>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <h3>Siti e applicazioni web</h3>
+          <p>Siti di presentazione, aree riservate con accesso tramite utente e password, calendari e prenotazioni, piccoli gestionali e dashboard. Veloci, adatti al telefono, con costi di hosting bassi o nulli.</p>
+          <div class="for"><b>Per</b>piccole e medie imprese, studi, associazioni, società sportive, uffici comunali</div>
+        </div>
+        <div class="svc">
+          <h3>Automazione dei processi</h3>
+          <p>Procedure che raccolgono dati da portali, file e caselle email e li trasformano in report, file aggiornati e avvisi. Meno copia e incolla, meno errori, più tempo per il lavoro vero.</p>
+          <div class="for"><b>Per</b>uffici con attività ripetitive su dati e documenti</div>
+        </div>
+        <div class="svc">
+          <h3>Integrazione dati e report</h3>
+          <p>Collegamento tra programmi tramite API e scambio di file (CSV, XML, JSON), pulizia e migrazione dei dati, report e indicatori chiari per chi deve decidere.</p>
+          <div class="for"><b>Per</b>aziende con dati divisi tra più strumenti</div>
+        </div>
+        <div class="svc">
+          <h3>Monitoraggio di dati pubblici</h3>
+          <p>Controllo automatico di albi pretori, ordinanze, bandi, gare e permessi edilizi, ogni giorno. Il risultato arriva come calendario, elenco filtrato o avviso.</p>
+          <div class="for"><b>Per</b>imprese edili, agenzie immobiliari, studi tecnici, polizia locale</div>
+        </div>
+        <div class="svc">
+          <h3>Documentazione e formazione</h3>
+          <p>Specifiche funzionali e tecniche, manuali utente, descrizione dei processi e materiale per corsi, scritti in modo chiaro in italiano o in inglese.</p>
+          <div class="for"><b>Per</b>team che adottano nuovi strumenti o procedure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="progetto">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Progetto in evidenza</span>
+        <h2>Il calendario dell'albo pretorio per la Polizia Locale</h2>
+      </div>
+      <div class="case">
+        <div>
+          <h3>Gli atti del Comune di Palestrina, giorno per giorno, a colpo d'occhio</h3>
+          <div class="meta"><span class="tag">2026</span><span class="tag">Applicazione web</span><span class="tag">Automazione</span><span class="tag">Accesso riservato</span></div>
+          <dl>
+            <div><dt>Il problema</dt><dd>Per sapere quali ordinanze, chiusure di strade ed eventi riguardavano il servizio bisognava sfogliare l'albo pretorio online pagina per pagina.</dd></div>
+            <div><dt>La soluzione</dt><dd>
+              <ul>
+                <li>Raccolta automatica di tutti gli atti pubblicati, tre volte al giorno.</li>
+                <li>Calendario mensile con un colore per ogni tipo di atto e una descrizione chiara in ogni giorno.</li>
+                <li>Pagina di dettaglio per ogni giorno, con il collegamento all'atto originale e agli allegati.</li>
+                <li>Riquadro con le ordinanze sulla viabilità dei prossimi 14 giorni.</li>
+                <li>Accesso con utente e password e dati cifrati.</li>
+              </ul>
+            </dd></div>
+            <div><dt>Il risultato</dt><dd>Un indirizzo da salvare nei preferiti del telefono, sempre aggiornato, con costi di gestione pari a zero.</dd></div>
+          </dl>
+        </div>
+        <div class="gallery">
+          <figure>
+            <div class="mock" role="img" aria-label="Riquadro con le ordinanze sulla viabilità dei prossimi giorni, ognuna con data, via interessata e numero di registro">
+              <div class="pt">Date in programma · prossimi 14 giorni</div>
+              <div class="prow"><span class="pd">04/11</span><span class="sw" style="--c:#c2410c"></span><span><b>Viabilità modificata: Via Pedemontana</b><small>Posizionamento cassone per rifiuti ingombranti · Reg. 2139/2026</small></span></div>
+              <div class="prow"><span class="pd">04/11</span><span class="sw" style="--c:#c2410c"></span><span><b>Viabilità modificata: centro storico e Carchitti</b><small>Giornata dell'Unità nazionale e delle Forze armate · Reg. 2135/2026</small></span></div>
+            </div>
+            <figcaption>Riquadro viabilità: le ordinanze dei prossimi 14 giorni.</figcaption>
+          </figure>
+          <figure>
+            <div class="mock" role="img" aria-label="Scheda di dettaglio di un'ordinanza con numero, registro, ufficio, periodo di pubblicazione e pulsante per aprire l'atto originale">
+              <div class="dcard">
+                <span class="dtag" style="--c:#c2410c">Ordinanza</span>
+                <b class="dt">Viabilità modificata: Piazza Regina Margherita</b>
+                <span class="dobj">Lavori di manutenzione straordinaria del manto stradale; nuova disciplina temporanea della viabilità.</span>
+                <span class="dfacts"><span><i>Numero atto</i>226/2026</span><span><i>Registro albo</i>2136/2026</span><span><i>Pubblicazione</i>30/10 → 14/11</span><span><i>Allegati</i>1 documento</span></span>
+                <span class="dbtn">Apri l'atto e gli allegati ↗</span>
+              </div>
+            </div>
+            <figcaption>Dettaglio del giorno: dati dell'atto e collegamento al documento originale.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="metodo">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Come lavoro</span>
+        <h2>Dalla prima chiamata alla consegna</h2>
+        <p>Sai sempre cosa riceverai, quando e a quale prezzo.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Chiamata</h3><p>Parliamo di cosa ti serve e del risultato che ti aspetti.</p></li>
+        <li><h3>Proposta</h3><p>Perimetro scritto, prezzo fisso e data di consegna.</p></li>
+        <li><h3>Sviluppo</h3><p>Anteprime funzionanti a tappe concordate.</p></li>
+        <li><h3>Consegna</h3><p>Messa online, documentazione e passaggio di consegne.</p></li>
+        <li><h3>Assistenza</h3><p>Manutenzione e modifiche, se e quando ti servono.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="esperienza">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Esperienza</span>
+        <h2>Dieci anni di software aziendale alle spalle</h2>
+      </div>
+      <div class="bg">
+        <div class="col">
+          <p>Da oltre dieci anni sviluppo e mantengo software su piattaforma SAP per grandi gruppi italiani e internazionali, tramite società di consulenza: programmi, interfacce tra sistemi, migrazioni di dati e reportistica.</p>
+          <p>Da questo lavoro arrivano le abitudini che porto in ogni progetto: capire bene la richiesta prima di scrivere codice, cercare la causa dei problemi invece di nasconderli, documentare quello che consegno e trattare con cura i dati sensibili.</p>
+        </div>
+        <div class="col">
+          <h3>Settori</h3>
+          <div class="chips"><span>Farmaceutico</span><span>Energia</span><span>Telecomunicazioni</span><span>Trasporti</span><span>Aerospazio</span><span>Beni di consumo</span><span>Pubblica amministrazione</span></div>
+          <h3>Competenze</h3>
+          <div class="chips"><span>Analisi dei requisiti</span><span>Integrazione tra sistemi</span><span>Qualità dei dati</span><span>Prestazioni</span><span>Sicurezza dei dati</span><span>Documentazione tecnica</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contatti">
+  <div class="wrap inner">
+    <div>
+      <span class="eyebrow">Contatti</span>
+      <h2>Hai un'attività ripetitiva o un'idea da trasformare in uno strumento?</h2>
+      <p>Scrivimi due righe su cosa ti serve: ti rispondo con qualche domanda e, se fa al caso tuo, con una proposta scritta a prezzo fisso.</p>
+    </div>
+    <div class="mailbox">
+      <span class="lab">Email</span>
+      <span class="addr" id="addr">luciano.salierno.work@gmail.com</span>
+      <div class="row">
+        <a class="btn primary" href="mailto:luciano.salierno.work@gmail.com?subject=Richiesta%20informazioni">Scrivi un'email</a>
+        <button class="btn copy" type="button" id="copia">Copia indirizzo</button>
+      </div>
+      <small id="esito" aria-live="polite">Lavoro da remoto; per i progetti nella zona di Roma possiamo incontrarci.</small>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap foot">
+  <span>© <span id="anno">2026</span> Luciano Salierno · Roma · P.IVA 16494231000</span>
+  <span>Sviluppo software, automazione e integrazione dati</span>
+</footer>
+
+<script>
+(() => {
+  const a = document.getElementById("anno"); a.textContent = new Date().getFullYear();
+  const b = document.getElementById("copia"), out = document.getElementById("esito"), addr = document.getElementById("addr");
+  b.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(addr.textContent.trim()); out.textContent = "Indirizzo copiato."; }
+    catch {
+      const r = document.createRange(); r.selectNodeContents(addr);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      out.textContent = "Indirizzo selezionato: copialo con Ctrl+C.";
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
