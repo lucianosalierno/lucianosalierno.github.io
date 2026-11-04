@@ -8,9 +8,29 @@
 <link rel="alternate" hreflang="it" href="https://www.lucianosalierno.it/">
 <link rel="alternate" hreflang="en" href="https://www.lucianosalierno.com/">
 <link rel="alternate" hreflang="x-default" href="https://www.lucianosalierno.it/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#fbf7f0">
+<link rel="canonical" href="https://www.lucianosalierno.it/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Luciano Salierno">
+<meta property="og:title" content="Luciano Salierno – Sviluppatore freelance">
+<meta property="og:description" content="Siti web, applicazioni su misura e automazioni per aziende e professionisti. Preventivo gratuito in 24 ore.">
+<meta property="og:url" content="https://www.lucianosalierno.it/">
+<meta property="og:locale" content="it_IT">
+<meta property="og:image" content="https://www.lucianosalierno.it/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luciano Salierno, sviluppatore freelance: strumenti digitali su misura, costruiti con cura.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Newsreader'; font-style: normal; font-weight: 400 500; font-display: swap; src: url(/fonts/newsreader-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Newsreader'; font-style: italic; font-weight: 400 500; font-display: swap; src: url(/fonts/newsreader-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/instrument-sans.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+</style>
 <style>
 /* Layout: carta avorio e bande crema alternate, testata serif calma, una banda noce per la chiamata finale.
    Palette unica per tutti (non segue il tema chiaro/scuro del dispositivo). */
@@ -283,6 +303,11 @@ footer.foot .fl > * { white-space: nowrap; }
 .ex-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 24px; text-align: center; }
 .ex-cta p { margin: 0; font: italic 500 22px/1.3 var(--f-serif); color: var(--walnut-dark); text-wrap: balance; }
 
+/* pulsante WhatsApp fisso */
+.wa { position: fixed; z-index: 6; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px 10px 10px; border-radius: 999px; background: var(--walnut-dark); color: var(--ivory); text-decoration: none; font: 600 14.5px/1 var(--f-sans); box-shadow: 0 14px 34px -14px rgba(58, 42, 32, .55), 0 0 0 1px rgba(255,255,255,.06) inset; transition: transform .2s, background-color .2s; }
+.wa:hover { transform: translateY(-2px); background: var(--walnut); }
+.wa svg { width: 34px; height: 34px; padding: 7px; border-radius: 50%; background: #3f9d63; color: #fff; flex: none; }
+
 @media (max-width: 1200px) {
   nav.links > a:not(.btn) { display: none; }
   .facts b { font-size: 30px; }
@@ -328,6 +353,9 @@ footer.foot .fl > * { white-space: nowrap; }
   .ico { grid-row: auto; margin-bottom: 8px; }
   .contact .wrap { padding-block: 68px; }
   form.req { padding: 22px; }
+  .wa { padding: 0; width: 56px; height: 56px; justify-content: center; }
+  .wa span { display: none; }
+  .wa svg { width: 56px; height: 56px; padding: 14px; }
   .examples { grid-template-columns: minmax(0, 1fr); }
   .notif { position: relative; left: auto; bottom: auto; width: auto; margin: -20px 12px 0; }
   .hero .note { margin-top: 12px; }
@@ -657,15 +685,17 @@ footer.foot .fl > * { white-space: nowrap; }
       <label for="msg">Raccontami in due righe<textarea id="msg" name="msg" placeholder="Cosa ti serve, chi lo userà, eventuali scadenze…"></textarea></label>
       <label class="hp" aria-hidden="true">Lascia vuoto<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
       <button class="btn primary" type="submit"><span class="bl">Invia la richiesta</span> <span class="arr" aria-hidden="true">→</span></button>
-      <small id="esito" aria-live="polite">Ti rispondo entro 24 ore. I dati servono solo a rispondere alla tua richiesta.</small>
+      <small id="esito" aria-live="polite">Ti rispondo entro 24 ore. I dati servono solo a rispondere alla tua richiesta: <a href="privacy.html">informativa privacy</a>.</small>
     </form>
   </div>
 </section>
 
+<a class="wa" href="https://wa.me/393899818719?text=Ciao%20Luciano%2C%20ho%20visto%20il%20tuo%20sito%20e%20vorrei%20un%20preventivo%20per%20" target="_blank" rel="noopener" aria-label="Scrivimi su WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>Scrivimi su WhatsApp</span></a>
+
 <footer class="foot">
   <div class="wrap">
     <div class="fl"><span>© <span id="anno">2026</span> Luciano Salierno · Roma</span><span>P.IVA 16494231000</span></div>
-    <div class="fl"><a href="mailto:info@lucianosalierno.it">info@lucianosalierno.it</a><a href="tel:+393899818719">+39 389 981 8719</a></div>
+    <div class="fl"><a href="mailto:info@lucianosalierno.it">info@lucianosalierno.it</a><a href="tel:+393899818719">+39 389 981 8719</a><a href="privacy.html">Privacy</a></div>
   </div>
 </footer>
 
