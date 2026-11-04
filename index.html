@@ -78,6 +78,7 @@ nav.top ul a:hover { color: #fff; text-decoration: underline; text-underline-off
 .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #c3cdd0; }
 .shot img { display: block; width: 100%; height: auto; }
 .hero figcaption { font-size: 13px; color: var(--band-muted); margin-top: 10px; }
+.nota { margin: -36px 0 22px; text-align: right; font-size: 12px; color: var(--band-muted); }
 
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,.14); }
 .facts div { padding: 18px 18px 22px 0; }
@@ -135,6 +136,8 @@ section.block + section.block { border-top: 1px solid var(--line); }
 .mailbox .row { display: flex; flex-wrap: wrap; gap: 10px; }
 .mailbox .copy { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
 .mailbox small { color: var(--band-muted); font-size: 13px; }
+.mailbox a.tel { text-decoration: none; }
+.mailbox a.tel:hover { text-decoration: underline; }
 
 footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 
@@ -199,7 +202,6 @@ footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display
       <a class="name" href="#top">LUCIANO SALIERNO</a>
       <ul>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#progetto">Progetto</a></li>
         <li><a href="#metodo">Come lavoro</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
@@ -212,17 +214,18 @@ footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display
         <p class="who">Da oltre 10 anni sviluppo software aziendale per grandi gruppi industriali. Oggi porto lo stesso metodo in progetti a prezzo fisso, consegnati funzionanti e documentati.</p>
         <div class="cta">
           <a class="btn primary" href="#contatti">Raccontami il tuo progetto</a>
-          <a class="btn ghost" href="#progetto">Guarda un lavoro reale</a>
+          <a class="btn ghost" href="#servizi">Scopri i servizi</a>
         </div>
       </div>
-      <figure class="shot" style="margin:0">
+      <figure class="shot" style="margin:0" aria-describedby="nota-esempio">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="mock" role="img" aria-label="Anteprima del calendario: le ultime due settimane di ottobre con gli atti del Comune colorati per tipo, ordinanze in arancio, determine in blu, convocazioni in ocra, autorizzazioni in verde">
-          <div class="mh"><span class="mt">Ottobre <i>2026</i></span><span class="leg"><span style="--c:#c2410c">Ordinanze</span><span style="--c:#2f6aa8">Determine</span><span style="--c:#a16207">Convocazioni</span><span style="--c:#2f7d4f">Autorizzazioni</span></span></div>
-          <div class="mgrid" aria-hidden="true"><div class="dw">Lun</div><div class="dw">Mar</div><div class="dw">Mer</div><div class="dw">Gio</div><div class="dw">Ven</div><div class="dw">Sab</div><div class="dw">Dom</div><div class="mc "><b>19</b></div><div class="mc "><b>20</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Via Dei Cappuccini</span></span><span class="ch" style="--c:#2f6aa8"><span>Accertamento di entrata</span></span><span class=more>+2 altri</span></div><div class="mc "><b>21</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Via Mezzaselva</span></span><span class="ch" style="--c:#c2410c"><span>Attivazione centro operativo comunale</span></span><span class=more>+1 altri</span></div><div class="mc "><b>22</b><span class="ch" style="--c:#c2410c"><span>Chiusura centro operativo comunale</span></span><span class="ch" style="--c:#a16207"><span>Convocazione commissione consiliare</span></span><span class=more>+5 altri</span></div><div class="mc "><b>23</b><span class="ch" style="--c:#c2410c"><span>Costituzione in giudizio</span></span><span class="ch" style="--c:#0e7f86"><span>Conservazione catasto terreni</span></span><span class=more>+5 altri</span></div><div class="mc we"><b>24</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Piazzale S. Francesco</span></span></div><div class="mc we"><b>25</b><span class="ch pr" style="--c:#c2410c"><span>In vigore: Piazzale S. Francesco</span></span></div><div class="mc "><b>26</b><span class="ch" style="--c:#2f6aa8"><span>Fornitura di spille in argento</span></span></div><div class="mc "><b>27</b><span class="ch" style="--c:#a16207"><span>Convocazione del consiglio comunale</span></span><span class="ch" style="--c:#7e3fb5"><span>Avviso pubblico otto per mille</span></span><span class=more>+25 altri</span></div><div class="mc "><b>28</b><span class="ch" style="--c:#2f6aa8"><span>Servizio trattamento rifiuti</span></span><span class="ch" style="--c:#2f6aa8"><span>Fornitura gas naturale</span></span><span class=more>+19 altri</span></div><div class="mc "><b>29</b><span class="ch" style="--c:#c2410c"><span>Nuova viabilità: pista ciclopedonale</span></span><span class="ch" style="--c:#2f7d4f"><span>Permesso di costruire in sanatoria</span></span><span class=more>+23 altri</span></div><div class="mc "><b>30</b><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: Piazza Regina Margherita</span></span><span class="ch" style="--c:#c2410c"><span>Viabilità modificata: centro storico</span></span><span class=more>+3 altri</span></div><div class="mc we"><b>31</b></div><div class="mc we out"><b>1</b></div></div>
+        <div class="mock" role="img" aria-label="Esempio di calendario automatico: scadenze, report, bandi e attività colorati per tipo">
+          <div class="mh"><span class="mt">Novembre <i>2026</i></span><span class="leg"><span style="--c:#c2410c">Scadenze</span><span style="--c:#2f6aa8">Report</span><span style="--c:#a16207">Appuntamenti</span><span style="--c:#2f7d4f">Bandi e avvisi</span></span></div>
+          <div class="mgrid" aria-hidden="true"><div class="dw">Lun</div><div class="dw">Mar</div><div class="dw">Mer</div><div class="dw">Gio</div><div class="dw">Ven</div><div class="dw">Sab</div><div class="dw">Dom</div><div class="mc "><b>2</b></div><div class="mc "><b>3</b><span class="ch" style="--c:#2f6aa8"><span>Report vendite settimanale</span></span><span class="ch" style="--c:#a16207"><span>Scadenza preventivo Rossi</span></span></div><div class="mc "><b>4</b><span class="ch" style="--c:#c2410c"><span>Rinnovo contratto fornitore</span></span></div><div class="mc "><b>5</b><span class="ch" style="--c:#2f7d4f"><span>Bando contributi digitali</span></span><span class="ch" style="--c:#2f6aa8"><span>Import ordini dal portale</span></span><span class=more>+1 altro</span></div><div class="mc "><b>6</b><span class="ch" style="--c:#0e7f86"><span>Backup dati completato</span></span></div><div class="mc we"><b>7</b></div><div class="mc we"><b>8</b></div><div class="mc "><b>9</b><span class="ch" style="--c:#2f6aa8"><span>Report vendite settimanale</span></span><span class="ch" style="--c:#2f7d4f"><span>Nuova gara pubblicata</span></span></div><div class="mc "><b>10</b><span class="ch" style="--c:#a16207"><span>Consegna sito cliente</span></span></div><div class="mc "><b>11</b><span class="ch" style="--c:#c2410c"><span>Scadenza fattura n. 128</span></span><span class="ch" style="--c:#0e7f86"><span>Sincronizzazione magazzino</span></span><span class=more>+2 altri</span></div><div class="mc "><b>12</b><span class="ch" style="--c:#2f7d4f"><span>Permesso edilizio in zona</span></span></div><div class="mc "><b>13</b><span class="ch" style="--c:#a16207"><span>Riunione avanzamento</span></span><span class="ch" style="--c:#2f6aa8"><span>Export dati contabilità</span></span></div><div class="mc we"><b>14</b><span class="ch pr" style="--c:#a16207"><span>Evento associazione</span></span></div><div class="mc we"><b>15</b></div></div>
         </div>
       </figure>
     </div>
+    <p class="nota" id="nota-esempio">Esempio dimostrativo con dati di fantasia.</p>
     <div class="facts">
       <div><b>10+ anni</b><span>di sviluppo software aziendale</span></div>
       <div><b>10+ aziende</b><span>in 7 settori diversi</span></div>
@@ -265,56 +268,6 @@ footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display
           <h3>Documentazione e formazione</h3>
           <p>Specifiche funzionali e tecniche, manuali utente, descrizione dei processi e materiale per corsi, scritti in modo chiaro in italiano o in inglese.</p>
           <div class="for"><b>Per</b>team che adottano nuovi strumenti o procedure</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="progetto">
-    <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">Progetto in evidenza</span>
-        <h2>Il calendario dell'albo pretorio per la Polizia Locale</h2>
-      </div>
-      <div class="case">
-        <div>
-          <h3>Gli atti del Comune di Palestrina, giorno per giorno, a colpo d'occhio</h3>
-          <div class="meta"><span class="tag">2026</span><span class="tag">Applicazione web</span><span class="tag">Automazione</span><span class="tag">Accesso riservato</span></div>
-          <dl>
-            <div><dt>Il problema</dt><dd>Per sapere quali ordinanze, chiusure di strade ed eventi riguardavano il servizio bisognava sfogliare l'albo pretorio online pagina per pagina.</dd></div>
-            <div><dt>La soluzione</dt><dd>
-              <ul>
-                <li>Raccolta automatica di tutti gli atti pubblicati, tre volte al giorno.</li>
-                <li>Calendario mensile con un colore per ogni tipo di atto e una descrizione chiara in ogni giorno.</li>
-                <li>Pagina di dettaglio per ogni giorno, con il collegamento all'atto originale e agli allegati.</li>
-                <li>Riquadro con le ordinanze sulla viabilità dei prossimi 14 giorni.</li>
-                <li>Accesso con utente e password e dati cifrati.</li>
-              </ul>
-            </dd></div>
-            <div><dt>Il risultato</dt><dd>Un indirizzo da salvare nei preferiti del telefono, sempre aggiornato, con costi di gestione pari a zero.</dd></div>
-          </dl>
-        </div>
-        <div class="gallery">
-          <figure>
-            <div class="mock" role="img" aria-label="Riquadro con le ordinanze sulla viabilità dei prossimi giorni, ognuna con data, via interessata e numero di registro">
-              <div class="pt">Date in programma · prossimi 14 giorni</div>
-              <div class="prow"><span class="pd">04/11</span><span class="sw" style="--c:#c2410c"></span><span><b>Viabilità modificata: Via Pedemontana</b><small>Posizionamento cassone per rifiuti ingombranti · Reg. 2139/2026</small></span></div>
-              <div class="prow"><span class="pd">04/11</span><span class="sw" style="--c:#c2410c"></span><span><b>Viabilità modificata: centro storico e Carchitti</b><small>Giornata dell'Unità nazionale e delle Forze armate · Reg. 2135/2026</small></span></div>
-            </div>
-            <figcaption>Riquadro viabilità: le ordinanze dei prossimi 14 giorni.</figcaption>
-          </figure>
-          <figure>
-            <div class="mock" role="img" aria-label="Scheda di dettaglio di un'ordinanza con numero, registro, ufficio, periodo di pubblicazione e pulsante per aprire l'atto originale">
-              <div class="dcard">
-                <span class="dtag" style="--c:#c2410c">Ordinanza</span>
-                <b class="dt">Viabilità modificata: Piazza Regina Margherita</b>
-                <span class="dobj">Lavori di manutenzione straordinaria del manto stradale; nuova disciplina temporanea della viabilità.</span>
-                <span class="dfacts"><span><i>Numero atto</i>226/2026</span><span><i>Registro albo</i>2136/2026</span><span><i>Pubblicazione</i>30/10 → 14/11</span><span><i>Allegati</i>1 documento</span></span>
-                <span class="dbtn">Apri l'atto e gli allegati ↗</span>
-              </div>
-            </div>
-            <figcaption>Dettaglio del giorno: dati dell'atto e collegamento al documento originale.</figcaption>
-          </figure>
         </div>
       </div>
     </div>
@@ -369,9 +322,12 @@ footer.foot { padding-block: 22px; font-size: 13px; color: var(--muted); display
     <div class="mailbox">
       <span class="lab">Email</span>
       <span class="addr" id="addr">luciano.salierno.work@gmail.com</span>
+      <span class="lab">Telefono</span>
+      <a class="addr tel" href="tel:+393899818719">+39 389 981 8719</a>
       <div class="row">
         <a class="btn primary" href="mailto:luciano.salierno.work@gmail.com?subject=Richiesta%20informazioni">Scrivi un'email</a>
-        <button class="btn copy" type="button" id="copia">Copia indirizzo</button>
+        <a class="btn copy" href="tel:+393899818719">Chiama</a>
+        <button class="btn copy" type="button" id="copia">Copia email</button>
       </div>
       <small id="esito" aria-live="polite">Lavoro da remoto; per i progetti nella zona di Roma possiamo incontrarci.</small>
     </div>
