@@ -179,6 +179,10 @@ form.req textarea { min-height: 120px; resize: vertical; }
 form.req input:focus, form.req select:focus, form.req textarea:focus { outline: none; border-color: var(--caramel); box-shadow: 0 0 0 3px rgba(169, 120, 75, .18); }
 form.req .btn { width: 100%; }
 form.req small { color: var(--muted); font-size: 13px; }
+form.req .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+form.req .btn[disabled] { opacity: .7; cursor: wait; transform: none; }
+form.req small.ok { color: #4f6a3c; font-weight: 600; font-size: 14px; background: #e6ecdc; border-radius: 10px; padding: 12px 14px; }
+form.req small.err { color: #8a3b2b; font-weight: 600; font-size: 14px; background: #f6e3dc; border-radius: 10px; padding: 12px 14px; }
 
 footer.foot { background: var(--walnut-dark); border-top: 1px solid rgba(239, 228, 212, .12); color: #bfae98; font-size: 14px; }
 footer.foot .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; }
@@ -651,8 +655,9 @@ footer.foot .fl > * { white-space: nowrap; }
         </select>
       </label>
       <label for="msg">Raccontami in due righe<textarea id="msg" name="msg" placeholder="Cosa ti serve, chi lo userà, eventuali scadenze…"></textarea></label>
-      <button class="btn primary" type="submit">Prepara l'email di richiesta <span class="arr" aria-hidden="true">→</span></button>
-      <small id="esito" aria-live="polite">Il pulsante apre il tuo programma di posta con il messaggio già scritto: ti basta premere Invia.</small>
+      <label class="hp" aria-hidden="true">Lascia vuoto<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+      <button class="btn primary" type="submit"><span class="bl">Invia la richiesta</span> <span class="arr" aria-hidden="true">→</span></button>
+      <small id="esito" aria-live="polite">Ti rispondo entro 1–2 giorni. I dati servono solo a rispondere alla tua richiesta.</small>
     </form>
   </div>
 </section>
@@ -667,14 +672,52 @@ footer.foot .fl > * { white-space: nowrap; }
 <script>
 (() => {
   document.getElementById("anno").textContent = new Date().getFullYear();
-  const f = document.getElementById("richiesta"), out = document.getElementById("esito");
-  f.addEventListener("submit", (e) => {
+  const f = document.getElementById("richiesta"), out = document.getElementById("esito"), btn = f.querySelector("button[type=submit]"), bl = btn.querySelector(".bl");
+  const EN = document.documentElement.lang === "en";
+  const T = EN ? {
+    missing: "Please enter your name and a way to reach you, so I can reply.",
+    bad: "Please enter a valid email address or phone number.",
+    sending: "Sending…", send: "Send request",
+    ok: "Thank you, your request has been sent! I will reply within 1–2 days.",
+    err: "Sorry, the request could not be sent. Please write to info@lucianosalierno.it or call +39 389 981 8719.",
+    subj: "Quote request", site: "Website lucianosalierno.com",
+    k: ["Name", "Contact", "Request", "Message", "Language"], lang: "English", none: "(no details)"
+  } : {
+    missing: "Inserisci nome e un recapito, così posso risponderti.",
+    bad: "Inserisci un indirizzo email o un numero di telefono valido.",
+    sending: "Invio in corso…", send: "Invia la richiesta",
+    ok: "Grazie, richiesta inviata! Ti rispondo entro 1–2 giorni.",
+    err: "Non è stato possibile inviare la richiesta. Scrivimi a info@lucianosalierno.it o chiamami al +39 389 981 8719.",
+    subj: "Richiesta preventivo", site: "Sito lucianosalierno.it",
+    k: ["Nome", "Recapito", "Richiesta", "Messaggio", "Lingua"], lang: "Italiano", none: "(nessun dettaglio)"
+  };
+  const say = (msg, cls) => { out.textContent = msg; out.className = cls || ""; };
+  f.addEventListener("submit", async (e) => {
     e.preventDefault();
     const nome = f.nome.value.trim(), rec = f.recapito.value.trim();
-    if (!nome || !rec) { out.textContent = "Inserisci nome e un recapito, così posso risponderti."; (nome ? f.recapito : f.nome).focus(); return; }
-    const corpo = `Ciao Luciano,\n\nvorrei un preventivo per: ${f.tipo.value}.\n\n${f.msg.value.trim() || "(dettagli da definire)"}\n\n${nome}\nRecapito: ${rec}`;
-    location.href = "mailto:info@lucianosalierno.it?subject=" + encodeURIComponent("Richiesta preventivo – " + f.tipo.value) + "&body=" + encodeURIComponent(corpo);
-    out.textContent = "Si sta aprendo il tuo programma di posta. Se non si apre, scrivimi a info@lucianosalierno.it.";
+    if (!nome || !rec) { say(T.missing, "err"); (nome ? f.recapito : f.nome).focus(); return; }
+    const isMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rec), isTel = /^[+\d][\d\s./-]{5,}$/.test(rec);
+    if (!isMail && !isTel) { say(T.bad, "err"); f.recapito.focus(); return; }
+    if (f.botcheck.checked) return;
+    const data = {
+      access_key: "caadcb04-ae39-4669-92a8-07029f237d87",
+      subject: T.subj + " – " + f.tipo.value + " – " + nome,
+      from_name: T.site,
+      [T.k[0]]: nome, [T.k[1]]: rec, [T.k[2]]: f.tipo.value,
+      [T.k[3]]: f.msg.value.trim() || T.none, [T.k[4]]: T.lang
+    };
+    if (isMail) { data.email = rec; data.replyto = rec; }
+    btn.disabled = true; bl.textContent = T.sending; say("", "");
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || j.success === false) throw new Error(j.message || r.status);
+      f.reset(); say(T.ok, "ok");
+    } catch (_) {
+      say(T.err, "err");
+    } finally {
+      btn.disabled = false; bl.textContent = T.send;
+    }
   });
 })();
 </script>
