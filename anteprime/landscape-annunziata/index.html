@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landscape Annunziata | Professionisti del verde</title>
+<meta name="description" content="Manutenzione e progettazione del verde, mitigazione di impianti fotovoltaici, disboscamento, potature in tree climbing e impianti di irrigazione. Trecase (NA), in Campania e in tutta Italia.">
+<meta name="author" content="Luciano Salierno">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3F4529">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: un'impresa del verde seria e affidabile, sobria ed elegante
+   IDEA: la tavola di un progetto paesaggistico: carta avorio, campi oliva pieni, foto vere dei cantieri
+   PICTURE: il Parco del Mercatello a tutta pagina, poi i lavori in griglia ordinata
+   COLOUR and TYPE: oliva profondo dominante, avorio, verde foglia accento; Cormorant Garamond + Mulish
+   LAYOUT: testata, apertura con dati chiave, specialità, servizi, referenze, galleria, chi siamo, contatti, piè di pagina a colonne */
+:root{color-scheme:light dark;
+ --bg:light-dark(#F6F1E6,#191C12);--paper:light-dark(#FFFDF8,#21251A);--ink:light-dark(#23261A,#ECE7D8);
+ --muted:light-dark(#5E624E,#B5B29D);--line:light-dark(#E3DBC8,#373C29);--olive:light-dark(#3F4529,#262B1A);
+ --olive2:light-dark(#5B6936,#A2B467);--leaf:light-dark(#8A9C52,#A9BB70);--on:#F4EFE2;--soft:light-dark(#EDE6D4,#262A1D);
+ --shadow:0 1px 2px rgba(35,38,26,.05),0 12px 32px -12px rgba(35,38,26,.18)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Mulish,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.06;text-wrap:balance;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(40px,5.6vw,64px)}h2{font-size:clamp(34px,4.2vw,48px)}h3{font-size:26px}
+p{margin:0}a{color:inherit}img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto}
+.band{padding:clamp(56px,7vw,104px) max(5vw,18px)}
+.note{background:#2B2F1C;color:#CFCBB8;font-size:12.5px;text-align:center;padding:6px 16px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--olive) 96%,transparent);backdrop-filter:blur(10px);color:var(--on);border-bottom:1px solid rgba(244,239,226,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(4vw,16px)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:44px;height:36px;flex:none}
+.logo b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;letter-spacing:.07em;line-height:1;font-weight:700}
+.logo span{display:block;font-size:11px;letter-spacing:.16em;opacity:.75;margin-top:4px}
+nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+nav .lk{text-decoration:none;font-weight:600;font-size:15px;opacity:.88}nav .lk:hover{opacity:1}
+.lang{display:flex;border:1px solid rgba(244,239,226,.35);border-radius:999px;padding:3px}
+.lang button{all:unset;cursor:pointer;font-size:13px;font-weight:700;padding:5px 11px;border-radius:999px;min-width:22px;text-align:center}
+.lang button[aria-pressed=true]{background:var(--on);color:#2B2F1C}
+.lang button:focus-visible{outline:2px solid var(--leaf)}
+nav .call svg{width:17px;height:17px}nav .call{display:inline-flex;align-items:center;gap:8px;background:var(--on);color:#2B2F1C;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap}
+.hero{position:relative;min-height:min(86vh,720px);display:grid;align-items:end;color:#fff;overflow:hidden;background:#2B2F1C}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,25,13,.82) 0%,rgba(22,25,13,.5) 42%,rgba(22,25,13,.05) 78%),linear-gradient(0deg,rgba(22,25,13,.7) 0%,rgba(22,25,13,0) 40%)}
+.hero .txt{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,8vw,96px) max(5vw,18px) 0}
+.hero h1{color:#fff;max-width:700px}
+.hero h1 em{font-style:italic;font-weight:500;color:#DCE6B8}
+.hero p{max-width:560px;font-size:18.5px;margin-top:18px;color:#EEEBDF}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;font-weight:700;text-decoration:none;border:1.5px solid var(--olive);font-size:16px;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.pri{background:var(--olive);color:var(--on)}.btn.light{background:#F4EFE2;color:#2B2F1C;border-color:#F4EFE2}.btn.ghost{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.kpi{position:relative;z-index:1;max-width:1200px;margin:clamp(40px,6vw,64px) auto 0;width:100%;padding:0 max(5vw,18px) 28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px}
+.kpi div{border-top:1px solid rgba(255,255,255,.3);padding:16px 18px 0 0}
+.kpi b{display:block;font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:600;line-height:1;color:#fff}
+.kpi span{font-size:14px;color:#D9D6C9}
+.sec-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:44px}
+.sec-h p{color:var(--muted);font-size:17.5px}
+.sec-h.c{display:block;text-align:center;max-width:720px;margin-inline:auto}.sec-h.c p{margin-top:14px}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--olive2);margin-bottom:12px}
+.label::before{content:"";width:22px;height:2px;background:currentColor}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .25s}
+.card:hover{transform:translateY(-3px)}
+.card .pic{aspect-ratio:4/3;overflow:hidden;background:var(--soft)}.card .pic img,.card .pic svg{width:100%;height:100%;object-fit:cover;display:block}
+.card .in{padding:24px 26px 28px}.card .in p{color:var(--muted);font-size:15.5px;margin-top:10px}
+.card .tag{font-size:13px;font-weight:700;color:var(--olive2)}
+.card h3{margin-top:6px}
+.svc-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:clamp(24px,4vw,56px);align-items:start}
+.svc-side img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:var(--shadow);margin-top:26px}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grp h3{font-size:24px;padding-bottom:12px;border-bottom:2px solid var(--olive2);margin-bottom:6px}
+.grp ul{list-style:none;margin:0;padding:0}.grp li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.grp li svg{width:18px;height:18px;flex:none;color:var(--olive2);margin-top:3px}
+.ref{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);gap:clamp(24px,4vw,56px);align-items:start}
+.ref-txt{position:sticky;top:100px}
+.ref-txt p{color:var(--muted);margin-top:14px;font-size:17px}
+.facts{margin-top:22px;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}.facts b{color:var(--olive2)}
+.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mosaic button,.gal button{all:unset;cursor:zoom-in;border-radius:14px;overflow:hidden;background:var(--soft);position:relative;display:block}
+.mosaic button{aspect-ratio:1}
+.mosaic button:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.mosaic img,.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mosaic button:hover img,.gal button:hover img{transform:scale(1.05)}
+.refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:56px}
+.rc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 22px 24px;box-shadow:var(--shadow)}
+.rc .y{font-size:13px;font-weight:700;color:var(--olive2)}.rc h3{font-size:23px;margin:6px 0 8px}.rc p{font-size:15px;color:var(--muted)}
+.italy{background:var(--olive);color:var(--on);position:relative;overflow:hidden}
+.italy .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center;position:relative}
+.italy h2{color:var(--on)}.italy p{opacity:.88;margin-top:14px;font-size:17.5px}
+.places{display:flex;flex-wrap:wrap;gap:10px}
+.places span{border:1px solid rgba(244,239,226,.4);border-radius:999px;padding:9px 18px;font-weight:600;font-size:15px;background:rgba(244,239,226,.05)}
+.italy .deco{position:absolute;right:-60px;top:-40px;width:420px;opacity:.07;color:var(--on)}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;gap:12px;grid-auto-flow:dense}
+.gal .w{grid-column:span 2}.gal .t{grid-row:span 2}
+.gal span{position:absolute;left:12px;bottom:12px;background:rgba(20,22,12,.7);backdrop-filter:blur(4px);color:#fff;font-size:13px;padding:5px 11px;border-radius:999px}
+.about{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.about .story p{margin-top:16px;font-size:17.5px}
+.quote{margin-top:24px;padding:18px 22px;border-left:3px solid var(--olive2);background:var(--soft);border-radius:0 14px 14px 0;font-family:"Cormorant Garamond",serif;font-size:25px;font-style:italic;line-height:1.25}
+.box{padding:22px 0;border-top:1px solid var(--line)}.box:first-child{border-top:0;padding-top:0}
+.box h3{font-size:24px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+.step .ic{width:46px;height:46px;border-radius:50%;background:var(--soft);display:grid;place-items:center;color:var(--olive2);margin-bottom:16px}.step .ic svg{width:22px;height:22px}
+.step b{font-family:"Cormorant Garamond",serif;font-size:24px;display:block;line-height:1.15}.step p{color:var(--muted);font-size:15px;margin-top:8px}
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,48px)}
+form{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);display:grid;gap:16px;box-shadow:var(--shadow)}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+label{font-weight:600;font-size:14px;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:50px;width:100%}
+textarea{min-height:130px;resize:vertical}
+.small{font-size:13px;color:var(--muted)}
+.ok{display:none;background:var(--soft);border-radius:12px;padding:12px 14px;font-size:15px}
+.info{display:grid;gap:0;align-content:start;background:var(--olive);color:var(--on);border-radius:22px;padding:clamp(20px,3vw,32px)}
+.info div{padding:16px 0;border-top:1px solid rgba(244,239,226,.16)}.info div:first-child{border-top:0;padding-top:0}
+.info span{display:block;font-size:13px;opacity:.7;margin-bottom:2px}.info a,.info strong{font-weight:700;font-size:17px;text-decoration:none}
+.info .tel a{display:block;white-space:nowrap;line-height:1.75}
+footer{background:#2B2F1C;color:#E6E1D2;padding:56px max(5vw,18px) 26px;font-size:14.5px}
+footer .cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:32px}
+footer h4{margin:0 0 12px;font-size:14px;color:#fff}
+footer a{text-decoration:none;opacity:.85}footer a:hover{opacity:1}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer .fname{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:700;letter-spacing:.06em;color:#fff}
+footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;opacity:.8}
+.wa{position:fixed;right:18px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.wa svg{width:24px;height:24px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(12,14,8,.93);display:none;place-items:center;padding:20px}
+.lb.on{display:grid}.lb figure{margin:0;max-width:min(1100px,100%);text-align:center}
+.lb img{max-height:80vh;width:auto;margin:0 auto;border-radius:10px}.lb figcaption{color:#eee;margin-top:12px;font-size:15px}
+.lb .x,.lb .nv{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:#F4EFE2;color:#222;font-size:26px;cursor:pointer}
+.lb .x{top:14px;right:14px}.lb .nv{top:50%;transform:translateY(-50%)}.lb .p{left:14px}.lb .n{right:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:1020px){.feat,.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.refs{grid-template-columns:repeat(2,minmax(0,1fr))}.ref,.about,.italy .wrap,.svc-wrap,.sec-h{grid-template-columns:minmax(0,1fr)}.ref-txt{position:static}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.svc-side img{display:none}nav .lk{display:none}.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.gal .t{grid-row:auto}.gal button:last-child{grid-column:auto}}
+@media(max-width:760px){.contact,footer .cols{grid-template-columns:minmax(0,1fr)}.kpi{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}.gal .w{grid-column:span 2}}
+@media(max-width:600px){header .wrap{padding:10px 12px}nav{gap:10px!important}.logo svg{width:34px;height:28px}.logo b{font-size:16.5px;letter-spacing:.04em}.logo span{font-size:9px}nav{gap:8px}nav .call{padding:0;width:40px;height:40px;justify-content:center}nav .call span{display:none}.lang button{padding:4px 8px;font-size:12px}
+ .feat,.svc,.refs,.steps,.row2{grid-template-columns:minmax(0,1fr)}.hero{min-height:620px}.hero::after{background:linear-gradient(0deg,rgba(22,25,13,.9) 18%,rgba(22,25,13,.3) 80%)}.kpi b{font-size:26px}
+ .wa span{display:none}.wa{padding:16px;border-radius:50%}.gal span{font-size:11.5px;left:8px;bottom:8px}.facts div{grid-template-columns:minmax(0,1fr);gap:2px}.call .t{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="ok" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19 14 10"/></g></symbol>
+ <symbol id="ph" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></symbol>
+ <symbol id="eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+ <symbol id="doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M9 12h7M9 16h7M9 8h3"/></g></symbol>
+ <symbol id="team" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.8 6 5"/></g></symbol>
+ <symbol id="cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+ <symbol id="tree" viewBox="0 0 80 64"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M40 60V34m0 8-10-9m10 4 11-10m-11 1-6-10m6 10 7-12"/><path d="M16 60h48"/></g><g fill="currentColor"><circle cx="40" cy="10" r="4"/><circle cx="30" cy="13" r="3.6"/><circle cx="50" cy="13" r="3.6"/><circle cx="22" cy="19" r="3.4"/><circle cx="58" cy="19" r="3.4"/><circle cx="35" cy="20" r="3.2"/><circle cx="46" cy="20" r="3.2"/><circle cx="16" cy="27" r="3"/><circle cx="64" cy="27" r="3"/><circle cx="27" cy="27" r="3"/><circle cx="54" cy="27" r="3"/><circle cx="40" cy="27" r="2.8"/><circle cx="21" cy="34" r="2.6"/><circle cx="59" cy="34" r="2.6"/></g></symbol>
+</defs></svg>
+
+<div class="note" data-k="note">Anteprima del sito: testi e logo provvisori</div>
+
+<header><div class="wrap">
+ <a class="logo" href="#top" aria-label="Landscape Annunziata"><svg aria-hidden="true"><use href="#tree"/></svg><div><b>LANDSCAPE ANNUNZIATA</b><span data-k="tagline">PROFESSIONISTI DEL VERDE</span></div></a>
+ <nav aria-label="Menu">
+  <a class="lk" href="#servizi" data-k="n1">Servizi</a><a class="lk" href="#lavori" data-k="n2">Lavori</a><a class="lk" href="#chi-siamo" data-k="n3">Chi siamo</a><a class="lk" href="#contatti" data-k="n4">Contatti</a>
+  <div class="lang" role="group" aria-label="Lingua / Language"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+  <a class="call" href="tel:+3908119716371" aria-label="Telefono"><svg aria-hidden="true"><use href="#ph"/></svg><span data-k="call">Chiama</span></a>
+ </nav>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <img src="img/hero.jpg" alt="Parco del Mercatello, Salerno" width="1800" height="1125" fetchpriority="high" data-ka="a_hero">
+ <div class="txt">
+  <h1 data-k="h1">Il verde in buone mani, <em>dal giardino di casa ai grandi impianti</em></h1>
+  <p data-k="hp">Manutenzione e progettazione del verde, mitigazione di impianti fotovoltaici e disboscamento di aree incolte, per privati, aziende ed enti pubblici. Da Trecase, in tutta Italia.</p>
+  <div class="btns"><a class="btn light" href="#contatti" data-k="b1">Richiedi un sopralluogo gratuito</a><a class="btn ghost" href="#lavori" data-k="b2">Guarda i nostri lavori</a></div>
+ </div>
+ <div class="kpi">
+  <div><b>2019</b><span data-k="k1">impresa fondata</span></div>
+  <div><b>6</b><span data-k="k2">persone in squadra</span></div>
+  <div><b data-k="k3b">Mezzi propri</b><span data-k="k3">dal tosasiepi al trattore</span></div>
+  <div><b data-k="k4b">Italia</b><span data-k="k4">ed estero</span></div>
+ </div>
+</section>
+
+<section class="band" id="servizi">
+ <div class="wrap">
+  <div class="sec-h"><div><div class="label" data-k="l1">Le nostre specialità</div><h2 data-k="s1">Cosa facciamo meglio</h2></div><p data-k="s1p">Tre ambiti su cui lavoriamo ogni giorno, con personale formato e attrezzature professionali, dai giardini privati alle grandi superfici.</p></div>
+  <div class="feat">
+   <article class="card"><div class="pic"><svg viewBox="0 0 400 300" role="img" aria-label="Impianto fotovoltaico">
+    <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD5E2"/><stop offset="1" stop-color="#E7EEE6"/></linearGradient><linearGradient id="pv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3C5378"/><stop offset="1" stop-color="#22324D"/></linearGradient></defs>
+    <rect width="400" height="300" fill="url(#sky)"/><circle cx="318" cy="70" r="30" fill="#F4E6B8"/>
+    <path d="M0 160 Q90 128 190 148 T400 136 V300 H0Z" fill="#9CAE66"/><path d="M0 190 Q120 176 240 186 T400 182 V300 H0Z" fill="#7F9245"/>
+    <g fill="#566A2E"><ellipse cx="22" cy="170" rx="26" ry="22"/><ellipse cx="62" cy="164" rx="24" ry="24"/><ellipse cx="98" cy="170" rx="20" ry="18"/><ellipse cx="340" cy="160" rx="24" ry="22"/><ellipse cx="380" cy="166" rx="22" ry="20"/></g>
+    <g><path d="M56 232 L104 194 H236 L188 232Z" fill="url(#pv)"/><path d="M196 232 L244 194 H350 L302 232Z" fill="url(#pv)"/><path d="M96 272 L144 234 H276 L228 272Z" fill="url(#pv)"/><path d="M236 272 L284 234 H390 L342 272Z" fill="url(#pv)"/>
+    <g stroke="#8FA6CF" stroke-width="1" opacity=".45"><path d="M80 213 H212M137 253 H252M220 213 H326M260 253 H366"/><path d="M137 194 L89 232M170 194 L122 232M203 194 L155 232M276 194 L228 232M310 194 L262 232M177 234 L129 272M210 234 L162 272M243 234 L195 272M318 234 L270 272M352 234 L304 272"/></g>
+    <g stroke="#454A36" stroke-width="4"><path d="M110 232v12M240 232v12M150 272v12M280 272v12"/></g></g>
+    <g stroke="#B5C774" stroke-width="2" stroke-linecap="round"><path d="M30 292l4-12M42 294l2-12M54 290l5-11M18 292l2-9M380 294l3-12M368 292l5-11"/></g></svg></div>
+    <div class="in"><span class="tag" data-k="c1t">La nostra specialità</span><h3 data-k="c1h">Mitigazione di impianti fotovoltaici</h3><p data-k="c1p">Taglio dell'erba sotto e tra i pannelli, pulizia dei moduli e realizzazione di siepi e alberature di schermatura richieste dai Comuni. Impianti puliti, efficienti e in regola.</p></div></article>
+   <article class="card"><div class="pic"><img src="img/trattore.jpg" alt="Trattore con trinciatrice su terreno incolto" loading="lazy" width="960" height="720" data-ka="a_tr"></div>
+    <div class="in"><span class="tag" data-k="c2t">Grandi superfici</span><h3 data-k="c2h">Disboscamento di aree incolte</h3><p data-k="c2p">Pulizia e bonifica di terreni abbandonati con trattore da 130 cavalli, trinciatrici forestali e biotrituratore per lo smaltimento del materiale vegetale.</p></div></article>
+   <article class="card"><div class="pic"><img src="img/prato-irrigato.jpg" alt="Prato irrigato tra gli ulivi" loading="lazy" width="830" height="680" data-ka="a_pi"></div>
+    <div class="in"><span class="tag" data-k="c3t">Giardini privati</span><h3 data-k="c3h">Giardini, prati e irrigazione</h3><p data-k="c3p">Impianti di irrigazione automatici, prati da semina e a pronto effetto, cura del manto erboso: un giardino bello da vedere e semplice da mantenere.</p></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="band" style="background:var(--paper);border-block:1px solid var(--line)">
+ <div class="wrap svc-wrap">
+  <div class="svc-side"><div class="label" data-k="l2">Servizi</div><h2 data-k="s2">Tutto il verde, un solo interlocutore</h2><p style="color:var(--muted);margin-top:14px;font-size:17px" data-k="s2p">Dalla siepe di casa al parco pubblico, ci occupiamo di ogni fase: progetto, realizzazione e manutenzione nel tempo.</p><img src="img/topiaria.jpg" alt="Ulivo potato a nuvole" loading="lazy" data-ka="a_top"></div>
+  <div class="svc">
+   <div class="grp"><h3 data-k="g1">Cura del verde</h3><ul>
+    <li><svg><use href="#ok"/></svg><span data-k="g1a">Manutenzione di giardini e aree verdi</span></li><li><svg><use href="#ok"/></svg><span data-k="g1b">Taglio dell'erba</span></li><li><svg><use href="#ok"/></svg><span data-k="g1c">Prati da semina e a pronto effetto</span></li><li><svg><use href="#ok"/></svg><span data-k="g1d">Prato sintetico</span></li><li><svg><use href="#ok"/></svg><span data-k="g1e">Giardini e parchi storici</span></li><li><svg><use href="#ok"/></svg><span data-k="g1f">Smaltimento del verde tagliato</span></li></ul></div>
+   <div class="grp"><h3 data-k="g2">Alberi e potature</h3><ul>
+    <li><svg><use href="#ok"/></svg><span data-k="g2a">Potatura di piante e siepi</span></li><li><svg><use href="#ok"/></svg><span data-k="g2b">Potatura di alto fusto in tree climbing</span></li><li><svg><use href="#ok"/></svg><span data-k="g2c">Potatura con piattaforma aerea</span></li><li><svg><use href="#ok"/></svg><span data-k="g2d">Abbattimento di alberi ad alto fusto</span></li><li><svg><use href="#ok"/></svg><span data-k="g2e">Giardini zen e potature ornamentali</span></li></ul></div>
+   <div class="grp"><h3 data-k="g3">Progetti e grandi aree</h3><ul>
+    <li><svg><use href="#ok"/></svg><span data-k="g3a">Progettazione e realizzazione di verde privato</span></li><li><svg><use href="#ok"/></svg><span data-k="g3b">Progettazione e realizzazione di verde pubblico</span></li><li><svg><use href="#ok"/></svg><span data-k="g3c">Impianti di irrigazione</span></li><li><svg><use href="#ok"/></svg><span data-k="g3d">Mitigazione di impianti fotovoltaici</span></li><li><svg><use href="#ok"/></svg><span data-k="g3e">Disboscamento di aree incolte</span></li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="lavori">
+ <div class="wrap">
+  <div class="ref">
+   <div class="ref-txt">
+    <div class="label" data-k="l3">Referenza · Verde pubblico</div>
+    <h2>Parco del Mercatello, Salerno</h2>
+    <p data-k="mp">Nel grande parco urbano di Salerno abbiamo curato, per conto di GM Costruzioni, la parte a verde dei lavori: prati, aiuole e nuove alberature che oggi accolgono ogni giorno famiglie e passanti.</p>
+    <div class="facts">
+     <div><b data-k="f1">Anni</b><span>2023–2024</span></div>
+     <div><b data-k="f2">Lavori</b><span data-k="f2v">Potature, prato a rotoli e da semina, diserbo meccanico, sistemazione delle aiuole, piantumazione di alberi</span></div>
+     <div><b data-k="f3">Committente</b><span>GM Costruzioni</span></div>
+    </div>
+   </div>
+   <div class="mosaic" id="mos">
+    <button data-c="cm1"><img src="img/mercatello-sentiero.jpg" alt="Prato con camminamento in pietra" loading="lazy" data-ka="a_m1"></button>
+    <button data-c="cm2"><img src="img/mercatello-aiuole.jpg" alt="Aiuole fiorite lungo il viale" loading="lazy" data-ka="a_m2"></button>
+    <button data-c="cm3"><img src="img/mercatello-prato.jpg" alt="Grande prato accanto al vialetto" loading="lazy" data-ka="a_m3"></button>
+    <button data-c="cm4"><img src="img/mercatello-viale.jpg" alt="Viale alberato con prati ai lati" loading="lazy" data-ka="a_m4"></button>
+    <button data-c="cm5"><img src="img/mercatello-passeggio.jpg" alt="Aiuole e prati lungo la passeggiata" loading="lazy" data-ka="a_m5"></button>
+    <button data-c="cm6"><img src="img/mercatello-glicine.jpg" alt="Glicine in fiore sul pergolato" loading="lazy" data-ka="a_m6"></button>
+   </div>
+  </div>
+  <div class="refs">
+   <div class="rc"><div class="y" data-k="r1y">Azienda · 2026</div><h3 data-k="r1h">Struttura alberghiera</h3><p data-k="r1p">Progettazione e realizzazione degli spazi verdi.</p></div>
+   <div class="rc"><div class="y" data-k="r2y">Privato · 2026</div><h3 data-k="r2h">Complesso privato in Campania</h3><p data-k="r2p">Manutenzione ordinaria e straordinaria delle aree verdi e degli impianti di irrigazione.</p></div>
+   <div class="rc"><div class="y" data-k="r3y">Ente pubblico · 2026</div><h3 data-k="r3h">Comune in provincia di Napoli</h3><p data-k="r3p">Manutenzione delle aree verdi pubbliche.</p></div>
+   <div class="rc"><div class="y" data-k="r4y">Fotovoltaico</div><h3>Carpi, Latina, Cisterna di Latina</h3><p data-k="r4p">Mitigazione ambientale e manutenzione del verde di parchi fotovoltaici.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="band italy">
+ <svg class="deco" viewBox="0 0 80 64" aria-hidden="true"><use href="#tree"/></svg>
+ <div class="wrap">
+  <div><h2 data-k="it">Ci spostiamo in tutta Italia</h2><p data-k="itp">Partiamo dalla Campania e raggiungiamo i cantieri ovunque servano, con la nostra squadra e i nostri mezzi. Abbiamo progettato e realizzato spazi verdi anche all'estero, in Irlanda.</p></div>
+  <div class="places"><span>Campania</span><span>Lazio</span><span>Emilia-Romagna</span><span data-k="pl1">Tutta Italia</span><span data-k="pl2">Irlanda</span></div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-h"><div><div class="label" data-k="l4">Galleria</div><h2 data-k="s4">Dai nostri cantieri</h2></div><p data-k="s4p">Giardini, potature, prati e lavori in altezza. Tocca una foto per ingrandirla.</p></div>
+  <div class="gal" id="gal">
+   <button class="w t"><img src="img/olivi-sera.jpg" alt="Uliveto con illuminazione" loading="lazy" data-ka="a_g1"><span data-k="a_g1">Uliveto con illuminazione</span></button>
+   <button class="w"><img src="img/giardino-zen.jpg" alt="Giardino zen" loading="lazy" data-ka="a_g2"><span data-k="a_g2">Giardino zen</span></button>
+   <button class="t"><img src="img/irrigazione.jpg" alt="Impianto di irrigazione in posa" loading="lazy" data-ka="a_g3"><span data-k="a_g3">Impianto di irrigazione in posa</span></button>
+   <button><img src="img/tappeto-fiorito.jpg" alt="Aiuola fiorita" loading="lazy" data-ka="a_g4"><span data-k="a_g4">Aiuola fiorita</span></button>
+   <button class="w"><img src="img/tree-climber.jpg" alt="Tree climbing" loading="lazy" data-ka="a_g5"><span data-k="a_g5">Tree climbing</span></button>
+   <button><img src="img/olivi-prato.jpg" alt="Prato e ulivi" loading="lazy" data-ka="a_g6"><span data-k="a_g6">Prato e ulivi</span></button>
+   <button class="t"><img src="img/tree-climbing.jpg" alt="Potatura di pino" loading="lazy" data-ka="a_g7"><span data-k="a_g7">Potatura di pino</span></button>
+   <button class="w"><img src="img/topiaria-giardino.jpg" alt="Arte topiaria" loading="lazy" data-ka="a_g8"><span data-k="a_g8">Arte topiaria</span></button>
+   <button class="t"><img src="img/prato-sintetico.jpg" alt="Prato sintetico" loading="lazy" data-ka="a_g9"><span data-k="a_g9">Prato sintetico</span></button>
+   <button class="w"><img src="img/progetto.jpg" alt="Progetto di giardino" loading="lazy" data-ka="a_g10"><span data-k="a_g10">Progetto di giardino</span></button>
+   <button class="w"><img src="img/potatura.jpg" alt="Potatura in corso" loading="lazy" data-ka="a_g11"><span data-k="a_g11">Potatura in corso</span></button>
+   <button class="w"><img src="img/prato-inglese.jpg" alt="Prato all'inglese" loading="lazy" data-ka="a_g12"><span data-k="a_g12">Prato all'inglese</span></button>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="chi-siamo" style="background:var(--paper);border-block:1px solid var(--line)">
+ <div class="wrap about">
+  <div class="story">
+   <div class="label" data-k="l5">Chi siamo</div>
+   <h2 data-k="s5">Una tradizione di famiglia</h2>
+   <p data-k="ab1">Il lavoro con il verde, da noi, passa di generazione in generazione. Nel 2019 Ciro Annunziata ha raccolto questa esperienza nella sua impresa, che oggi si occupa del verde a 360 gradi: manutenzione, progettazione, potatura, realizzazione di giardini e cura di parchi e aree verdi.</p>
+   <p data-k="ab2">Negli ultimi anni ci siamo specializzati nella mitigazione delle aree verdi dei parchi fotovoltaici, per impianti sempre puliti, efficienti e in regola. Nel nostro team lavorano anche paesaggisti, per progettare spazi belli, funzionali e sostenibili.</p>
+   <div class="quote" data-k="q">Tradizione, esperienza e innovazione per prenderci cura del tuo verde.</div>
+  </div>
+  <div>
+   <div class="box"><h3 data-k="bx1">La squadra</h3><div class="chips"><span data-k="t1">Titolare</span><span data-k="t2">Supervisore di cantiere</span><span data-k="t3">Caposquadra</span><span data-k="t4">Operai specializzati</span><span data-k="t5">Paesaggisti</span></div></div>
+   <div class="box"><h3 data-k="bx2">Formazione e abilitazioni</h3><div class="chips"><span data-k="c_1">Certificazione tree climbing</span><span data-k="c_2">Patentino piattaforme aeree</span><span data-k="c_3">Patentino prodotti fitosanitari</span><span data-k="c_4">Giardiniere d'arte</span><span data-k="c_5">Corso di potatura dell'ulivo</span></div></div>
+   <div class="box"><h3 data-k="bx3">Mezzi e attrezzature</h3><div class="chips"><span data-k="m_1">Trattore SAME 130 CV</span><span data-k="m_2">Trattorino forestale e trinciatrice OREC</span><span data-k="m_3">Minipala multifunzione con accessori</span><span data-k="m_4">Biotrituratore Negri</span><span data-k="m_5">Rasaerba e trattorini</span><span data-k="m_6">Decespugliatori, tosasiepi e motoseghe</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-h c"><div class="label" data-k="l6">Come lavoriamo</div><h2 data-k="s6">Dal sopralluogo alla cura nel tempo</h2><p data-k="s6p">Per privati, condomini, aziende, enti pubblici, hotel e strutture ricettive.</p></div>
+  <div class="steps">
+   <div class="step"><div class="ic"><svg><use href="#eye"/></svg></div><b data-k="st1">Sopralluogo gratuito</b><p data-k="st1p">Veniamo a vedere lo spazio e ascoltiamo cosa ti serve.</p></div>
+   <div class="step"><div class="ic"><svg><use href="#doc"/></svg></div><b data-k="st2">Preventivo in pochi giorni</b><p data-k="st2p">Di solito in un paio di giorni ricevi una proposta chiara e senza impegno.</p></div>
+   <div class="step"><div class="ic"><svg><use href="#team"/></svg></div><b data-k="st3">Squadra e mezzi propri</b><p data-k="st3p">Organizziamo il cantiere e lo portiamo a termine con il nostro personale.</p></div>
+   <div class="step"><div class="ic"><svg><use href="#cal"/></svg></div><b data-k="st4">Manutenzione e urgenze</b><p data-k="st4p">Contratti di manutenzione programmata e interventi urgenti quando servono.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="contatti" style="background:var(--soft)">
+ <div class="wrap">
+  <div class="sec-h c"><div class="label" data-k="l7">Contatti</div><h2 data-k="s7">Richiedi un sopralluogo gratuito</h2><p data-k="s7p">Raccontaci di cosa hai bisogno: ti ricontattiamo per fissare un sopralluogo.</p></div>
+  <div class="contact">
+   <form id="f" novalidate>
+    <div class="row2"><label><span data-k="fl1">Nome e cognome</span><input name="nome" autocomplete="name" required></label><label><span data-k="fl2">Email o telefono</span><input name="recapito" required></label></div>
+    <label><span data-k="fl3">Di cosa hai bisogno</span><select name="tipo" id="sel"><option data-k="o1">Manutenzione di giardini e aree verdi</option><option data-k="o2">Impianto fotovoltaico</option><option data-k="o3">Disboscamento di area incolta</option><option data-k="o4">Progettazione e realizzazione</option><option data-k="o5">Potatura, tree climbing o abbattimento</option><option data-k="o6">Prato o impianto di irrigazione</option><option data-k="o7">Intervento urgente</option><option data-k="o8">Altro</option></select></label>
+    <label><span data-k="fl4">Dove si trova e cosa vorresti fare</span><textarea name="msg" data-kp="ph1" placeholder="Comune, dimensioni indicative, tipo di lavoro…"></textarea></label>
+    <button class="btn pri" type="submit" data-k="send">Invia la richiesta</button>
+    <p class="ok" id="ok" role="status" data-k="okm">Anteprima: in questa versione di prova il modulo non invia messaggi.</p>
+    <p class="small" data-k="pr">Rispondiamo di solito entro un giorno lavorativo. Leggi l'<a href="#contatti">informativa privacy</a>.</p>
+   </form>
+   <div class="info">
+    <div class="tel"><span data-k="i1">Telefono</span><a href="tel:+3908119716371" data-k="off">081 1971 6371 · ufficio</a><a href="tel:+393314004570">+39 331 400 4570</a><a href="tel:+393510825438">+39 351 082 5438</a></div>
+    <div><span>Email</span><a href="mailto:annunziata_odv@outlook.com" style="overflow-wrap:anywhere">annunziata_odv@outlook.com</a></div>
+    <div><span data-k="i3">Sede</span><strong>Via Dante 69, 80040 Trecase (NA)</strong></div>
+    <div><span data-k="i4">Seguici</span><a href="https://www.facebook.com/profile.php?id=100063339814162">Facebook</a> · <a href="https://www.instagram.com/landscape_annunziata/">Instagram</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="cols">
+   <div><div class="fname">LANDSCAPE ANNUNZIATA</div><p style="margin-top:10px;opacity:.8;max-width:360px" data-k="ft">Manutenzione, progettazione e realizzazione del verde. Da Trecase, in Campania e in tutta Italia.</p></div>
+   <div><h4 data-k="fh1">Contatti</h4><ul><li><a href="tel:+3908119716371">081 1971 6371</a></li><li><a href="tel:+393314004570">+39 331 400 4570</a></li><li><a href="mailto:annunziata_odv@outlook.com">annunziata_odv@outlook.com</a></li><li>Via Dante 69, 80040 Trecase (NA)</li></ul></div>
+   <div><h4 data-k="fh2">Sito</h4><ul><li><a href="#servizi" data-k="n1">Servizi</a></li><li><a href="#lavori" data-k="n2">Lavori</a></li><li><a href="#chi-siamo" data-k="n3">Chi siamo</a></li><li><a href="#contatti">Privacy</a></li></ul></div>
+  </div>
+  <div class="bot"><span data-k="fb">Landscape Annunziata di Ciro Annunziata · P.IVA 09172151210</span><a href="https://www.lucianosalierno.it" target="_blank" rel="noopener nofollow" data-k="sig">Sito realizzato da Luciano Salierno</a></div>
+ </div>
+</footer>
+
+<a class="wa" href="https://wa.me/393314004570?text=Ciao%2C%20vorrei%20un%20sopralluogo%20per%20il%20mio%20spazio%20verde" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg><span>WhatsApp</span></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto">
+ <button class="x" id="lbx" aria-label="Chiudi / Close">×</button>
+ <button class="nv p" id="lbp" aria-label="‹">‹</button>
+ <figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure>
+ <button class="nv n" id="lbn" aria-label="›">›</button>
+</div>
+
+<script>{
+const EN={note:"Website preview: temporary texts and logo",tagline:"GREEN SPACE PROFESSIONALS",n1:"Services",n2:"Projects",n3:"About us",n4:"Contact",call:"Call us",
+h1:"Your green spaces in good hands, <em>from home gardens to large-scale sites</em>",hp:"Landscape maintenance and design, vegetation management for solar farms and clearing of overgrown land, for homeowners, businesses and public bodies. Based in Trecase, working all over Italy.",
+b1:"Book a free site visit",b2:"See our work",k1:"company founded",k2:"people on our team",k3b:"Own equipment",k3:"from hedge trimmers to tractors",k4b:"Italy",k4:"and abroad",
+l1:"Our specialities",s1:"What we do best",s1p:"Three areas we work on every day, with trained staff and professional equipment, from private gardens to large sites.",
+c1t:"Our speciality",c1h:"Solar farm vegetation management",c1p:"Mowing under and between panels, panel cleaning and screening hedges and trees as required by local councils. Clean, efficient and compliant installations.",
+c2t:"Large areas",c2h:"Clearing of overgrown land",c2p:"Clearing and reclaiming abandoned land with a 130 hp tractor, forestry mulchers and a wood chipper for disposing of plant material.",
+c3t:"Private gardens",c3h:"Gardens, lawns and irrigation",c3p:"Automatic irrigation systems, seeded and ready-made turf lawns, lawn care: a garden that looks great and is easy to maintain.",
+l2:"Services",s2:"Everything green, one single partner",s2p:"From a home hedge to a public park, we handle every stage: design, installation and ongoing maintenance.",
+g1:"Green space care",g1a:"Garden and green area maintenance",g1b:"Grass cutting",g1c:"Seeded and ready-made turf lawns",g1d:"Artificial grass",g1e:"Historic gardens and parks",g1f:"Green waste disposal",
+g2:"Trees and pruning",g2a:"Pruning of plants and hedges",g2b:"Tall tree pruning by tree climbing",g2c:"Pruning with aerial platforms",g2d:"Tall tree felling",g2e:"Zen gardens and ornamental pruning",
+g3:"Design and large areas",g3a:"Design and build of private green spaces",g3b:"Design and build of public green spaces",g3c:"Irrigation systems",g3d:"Solar farm vegetation management",g3e:"Clearing of overgrown land",
+l3:"Reference · Public green space",mp:"In Salerno's large urban park we carried out the landscaping works on behalf of GM Costruzioni: lawns, flower beds and new trees that now welcome families and visitors every day.",
+f1:"Years",f2:"Works",f2v:"Pruning, turf and seeded lawns, mechanical weeding, flower bed landscaping, tree planting",f3:"Main contractor",
+r1y:"Business · 2026",r1h:"Hotel property",r1p:"Design and build of the green spaces.",r2y:"Private · 2026",r2h:"Private complex in Campania",r2p:"Routine and extraordinary maintenance of green areas and irrigation systems.",
+r3y:"Public body · 2026",r3h:"Municipality near Naples",r3p:"Maintenance of public green areas.",r4y:"Solar",r4p:"Environmental mitigation and vegetation maintenance for solar farms.",
+it:"We work all over Italy",itp:"Starting from Campania, we reach job sites wherever they are, with our own team and equipment. We have also designed and built green spaces abroad, in Ireland.",pl1:"All of Italy",pl2:"Ireland",
+l4:"Gallery",s4:"From our job sites",s4p:"Gardens, pruning, lawns and work at height. Tap a photo to enlarge it.",
+a_g1:"Olive grove with lighting",a_g2:"Zen garden",a_g3:"Irrigation system being installed",a_g4:"Flower bed",a_g5:"Tree climbing",a_g6:"Lawn and olive trees",a_g7:"Pine tree pruning",a_g8:"Topiary art",a_g9:"Artificial grass",a_g10:"Garden design project",a_g11:"Pruning in progress",a_g12:"English-style lawn",
+a_hero:"Parco del Mercatello, Salerno",a_tr:"Tractor with mulcher on overgrown land",a_pi:"Irrigated lawn among olive trees",a_top:"Cloud-pruned olive tree",a_m1:"Lawn with stepping stones",a_m2:"Flower beds along the avenue",a_m3:"Large lawn beside the path",a_m4:"Tree-lined avenue with lawns",a_m5:"Flower beds and lawns along the promenade",a_m6:"Wisteria in bloom on the pergola",
+l5:"About us",s5:"A family tradition",ab1:"For us, working with plants is passed down from generation to generation. In 2019 Ciro Annunziata brought this experience into his own company, which today covers every aspect of green spaces: maintenance, design, pruning, garden construction and care of parks and green areas.",
+ab2:"In recent years we have specialised in vegetation management for solar farms, keeping installations clean, efficient and compliant. Our team also includes landscape designers, to create spaces that are beautiful, functional and sustainable.",q:"Tradition, experience and innovation to take care of your green spaces.",
+bx1:"Our team",t1:"Owner",t2:"Site supervisor",t3:"Team leader",t4:"Skilled workers",t5:"Landscape designers",bx2:"Training and certifications",c_1:"Tree climbing certification",c_2:"Aerial platform licence",c_3:"Plant protection products licence",c_4:"Master gardener",c_5:"Olive tree pruning course",
+bx3:"Machinery and equipment",m_1:"SAME 130 hp tractor",m_2:"OREC forestry tractor and mulcher",m_3:"Multi-purpose compact loader with attachments",m_4:"Negri wood chipper",m_5:"Lawn mowers and ride-on mowers",m_6:"Brush cutters, hedge trimmers and chainsaws",
+l6:"How we work",s6:"From site visit to long-term care",s6p:"For homeowners, condominiums, businesses, public bodies, hotels and hospitality venues.",st1:"Free site visit",st1p:"We come to see the space and listen to what you need.",st2:"Quote within days",st2p:"Usually within a couple of days you receive a clear, no-obligation proposal.",st3:"Own team and equipment",st3p:"We organise the job site and complete it with our own staff.",st4:"Maintenance and emergencies",st4p:"Scheduled maintenance contracts and urgent call-outs whenever needed.",
+l7:"Contact",s7:"Book a free site visit",s7p:"Tell us what you need: we will get back to you to arrange a site visit.",fl1:"Full name",fl2:"Email or phone",fl3:"What do you need",o1:"Garden and green area maintenance",o2:"Solar farm",o3:"Clearing of overgrown land",o4:"Design and build",o5:"Pruning, tree climbing or felling",o6:"Lawn or irrigation system",o7:"Urgent call-out",o8:"Other",fl4:"Where is it and what would you like to do",ph1:"Town, approximate size, type of work…",send:"Send request",okm:"Preview: in this test version the form does not send messages.",pr:"We usually reply within one working day. Read our <a href=\"#contatti\">privacy policy</a>.",
+i1:"Phone",off:"+39 081 1971 6371 · office",i3:"Address",i4:"Follow us",ft:"Landscape maintenance, design and construction. Based in Trecase, working across Campania and all of Italy.",fh1:"Contact",fh2:"Website",fb:"Landscape Annunziata by Ciro Annunziata · VAT 09172151210",sig:"Website by Luciano Salierno"};
+const IT={};
+const txt=[...document.querySelectorAll('[data-k]')],alt=[...document.querySelectorAll('[data-ka]')],ph=[...document.querySelectorAll('[data-kp]')];
+txt.forEach(e=>{if(!(e.dataset.k in IT))IT[e.dataset.k]=e.innerHTML});
+const IT_ALT=new Map(alt.map(e=>[e,e.alt])),IT_PH=new Map(ph.map(e=>[e,e.placeholder]));
+const setLang=l=>{
+ txt.forEach(e=>{const v=l==='en'?EN[e.dataset.k]:IT[e.dataset.k];if(v!=null)e.innerHTML=v});
+ alt.forEach(e=>{e.alt=l==='en'?(EN[e.dataset.ka]||IT_ALT.get(e)):IT_ALT.get(e)});
+ ph.forEach(e=>{e.placeholder=l==='en'?(EN[e.dataset.kp]||IT_PH.get(e)):IT_PH.get(e)});
+ document.documentElement.lang=l;
+ document.title=l==='en'?'Landscape Annunziata | Green space professionals':'Landscape Annunziata | Professionisti del verde';
+ document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
+ try{localStorage.setItem('la-lang',l)}catch(e){}
+};
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+let saved=null;try{saved=localStorage.getItem('la-lang')}catch(e){}
+if(saved==='en')setLang('en');
+const f=document.getElementById('f'),ok=document.getElementById('ok');
+f.addEventListener('submit',e=>{e.preventDefault();ok.style.display='block';});
+const items=[...document.querySelectorAll('#mos button,#gal button')];
+const lb=document.getElementById('lb'),li=document.getElementById('lbi'),lc=document.getElementById('lbc');
+let cur=0;
+const show=i=>{cur=(i+items.length)%items.length;const im=items[cur].querySelector('img');li.src=im.src;li.alt=im.alt;lc.textContent=im.alt;lb.classList.add('on');};
+items.forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+const close=()=>lb.classList.remove('on');
+document.getElementById('lbx').addEventListener('click',close);
+document.getElementById('lbp').addEventListener('click',()=>show(cur-1));
+document.getElementById('lbn').addEventListener('click',()=>show(cur+1));
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+}</script>
+</body>
+</html>
