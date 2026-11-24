@@ -28,7 +28,7 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Mulish,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.06;text-wrap:balance;margin:0;letter-spacing:-.005em}
 h1{font-size:clamp(40px,5.6vw,64px)}h2{font-size:clamp(34px,4.2vw,48px)}h3{font-size:26px}
-p{margin:0}a{color:inherit}img{display:block;max-width:100%}
+p{margin:0}a{color:inherit}img{display:block;max-width:100%;height:auto}
 .wrap{max-width:1200px;margin:0 auto}
 .band{padding:clamp(56px,7vw,104px) max(5vw,18px)}
 .note{background:#2B2F1C;color:#CFCBB8;font-size:12.5px;text-align:center;padding:6px 16px}
@@ -139,11 +139,32 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
 .lb img{max-height:80vh;width:auto;margin:0 auto;border-radius:10px}.lb figcaption{color:#eee;margin-top:12px;font-size:15px}
 .lb .x,.lb .nv{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:#F4EFE2;color:#222;font-size:26px;cursor:pointer}
 .lb .x{top:14px;right:14px}.lb .nv{top:50%;transform:translateY(-50%)}.lb .p{left:14px}.lb .n{right:14px}
+.ba-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.ba-item h3{font-size:24px;margin-top:16px}.ba-item p{color:var(--muted);font-size:15.5px;margin-top:6px}
+.ba{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:var(--soft);--p:50%;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.ba .af{clip-path:inset(0 0 0 var(--p))}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none;z-index:2;box-shadow:0 0 12px rgba(0,0,0,.3)}
+.ba .bar::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;border-radius:50%;transform:translate(-50%,-50%);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6 3 12l6 6M15 6l6 6-6 6' fill='none' stroke='%232B2F1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.ba input:focus-visible~.bar{background:var(--leaf)}
+.ba .tg{position:absolute;top:12px;z-index:2;background:rgba(20,22,12,.72);color:#fff;font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;pointer-events:none}
+.ba .tg.l{left:12px}.ba .tg.r{right:12px}
+.work{background:#23261A;color:#ECE7D8}
+.work h2{color:#F4EFE2}.work .label{color:#B9CB7E}.work .sec-h p{color:#C9C5B2}
+.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.vid{margin:0;border-radius:18px;overflow:hidden;position:relative;background:#111;aspect-ratio:4/5;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;background:linear-gradient(0deg,rgba(10,12,6,.85),rgba(10,12,6,0));color:#fff;font-weight:700;font-size:15px}
+.ig{display:inline-flex;align-items:center;gap:10px;margin-top:26px;color:#F4EFE2;font-weight:700;text-decoration:none;border:1.5px solid rgba(244,239,226,.4);padding:11px 20px;border-radius:999px}
+.ig svg{width:20px;height:20px}
+.gal .more{display:none}.gal.open .more{display:block}
+.gal-more{display:flex;justify-content:center;margin-top:26px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-@media(max-width:1020px){.feat,.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.refs{grid-template-columns:repeat(2,minmax(0,1fr))}.ref,.about,.italy .wrap,.svc-wrap,.sec-h{grid-template-columns:minmax(0,1fr)}.ref-txt{position:static}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.svc-side img{display:none}nav .lk{display:none}.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.gal .t{grid-row:auto}.gal button:last-child{grid-column:auto}}
+@media(max-width:1020px){.feat,.svc{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.refs{grid-template-columns:repeat(2,minmax(0,1fr))}.ref,.about,.italy .wrap,.svc-wrap,.sec-h{grid-template-columns:minmax(0,1fr)}.ref-txt{position:static}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.svc-side img{display:none}nav .lk{display:none}.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.gal .t{grid-row:auto}.gal:not(.open) button:nth-child(13),.gal.open button:last-child{grid-column:span 2}.ba-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vids{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.contact,footer .cols{grid-template-columns:minmax(0,1fr)}.kpi{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}.gal .w{grid-column:span 2}}
 @media(max-width:600px){header .wrap{padding:10px 12px}nav{gap:10px!important}.logo svg{width:34px;height:28px}.logo b{font-size:16.5px;letter-spacing:.04em}.logo span{font-size:9px}nav{gap:8px}nav .call{padding:0;width:40px;height:40px;justify-content:center}nav .call span{display:none}.lang button{padding:4px 8px;font-size:12px}
- .feat,.svc,.refs,.steps,.row2{grid-template-columns:minmax(0,1fr)}.hero{min-height:620px}.hero::after{background:linear-gradient(0deg,rgba(22,25,13,.9) 18%,rgba(22,25,13,.3) 80%)}.kpi b{font-size:26px}
+ .feat,.svc,.refs,.steps,.row2,.ba-grid{grid-template-columns:minmax(0,1fr)}.vids{gap:10px}.vid figcaption{font-size:13px;padding:30px 10px 10px}.hero{min-height:620px}.hero::after{background:linear-gradient(0deg,rgba(22,25,13,.9) 18%,rgba(22,25,13,.3) 80%)}.kpi b{font-size:26px}
  .wa span{display:none}.wa{padding:16px;border-radius:50%}.gal span{font-size:11.5px;left:8px;bottom:8px}.facts div{grid-template-columns:minmax(0,1fr);gap:2px}.call .t{display:none}}
 </style>
 </head>
@@ -171,7 +192,7 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
 
 <main id="top">
 <section class="hero">
- <img src="img/hero.jpg" alt="Parco del Mercatello, Salerno" width="1800" height="1125" fetchpriority="high" data-ka="a_hero">
+ <img src="img/hero.jpg" alt="Prato curato tra gli agrumi" width="1440" height="900" fetchpriority="high" data-ka="a_hero">
  <div class="txt">
   <h1 data-k="h1">Il verde in buone mani, <em>dal giardino di casa ai grandi impianti</em></h1>
   <p data-k="hp">Manutenzione e progettazione del verde, mitigazione di impianti fotovoltaici e disboscamento di aree incolte, per privati, aziende ed enti pubblici. Da Trecase, in tutta Italia.</p>
@@ -199,9 +220,9 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
     <g stroke="#454A36" stroke-width="4"><path d="M110 232v12M240 232v12M150 272v12M280 272v12"/></g></g>
     <g stroke="#B5C774" stroke-width="2" stroke-linecap="round"><path d="M30 292l4-12M42 294l2-12M54 290l5-11M18 292l2-9M380 294l3-12M368 292l5-11"/></g></svg></div>
     <div class="in"><span class="tag" data-k="c1t">La nostra specialità</span><h3 data-k="c1h">Mitigazione di impianti fotovoltaici</h3><p data-k="c1p">Taglio dell'erba sotto e tra i pannelli, pulizia dei moduli e realizzazione di siepi e alberature di schermatura richieste dai Comuni. Impianti puliti, efficienti e in regola.</p></div></article>
-   <article class="card"><div class="pic"><img src="img/trattore.jpg" alt="Trattore con trinciatrice su terreno incolto" loading="lazy" width="960" height="720" data-ka="a_tr"></div>
+   <article class="card"><div class="pic"><img src="img/disbosco.jpg" alt="Trattore con trinciatrice forestale al lavoro" loading="lazy" width="1100" height="825" data-ka="a_tr"></div>
     <div class="in"><span class="tag" data-k="c2t">Grandi superfici</span><h3 data-k="c2h">Disboscamento di aree incolte</h3><p data-k="c2p">Pulizia e bonifica di terreni abbandonati con trattore da 130 cavalli, trinciatrici forestali e biotrituratore per lo smaltimento del materiale vegetale.</p></div></article>
-   <article class="card"><div class="pic"><img src="img/prato-irrigato.jpg" alt="Prato irrigato tra gli ulivi" loading="lazy" width="830" height="680" data-ka="a_pi"></div>
+   <article class="card"><div class="pic"><img src="img/giardino.jpg" alt="Giardino con prato e camminamento in pietra" loading="lazy" width="1060" height="795" data-ka="a_pi"></div>
     <div class="in"><span class="tag" data-k="c3t">Giardini privati</span><h3 data-k="c3h">Giardini, prati e irrigazione</h3><p data-k="c3p">Impianti di irrigazione automatici, prati da semina e a pronto effetto, cura del manto erboso: un giardino bello da vedere e semplice da mantenere.</p></div></article>
   </div>
  </div>
@@ -209,7 +230,7 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
 
 <section class="band" style="background:var(--paper);border-block:1px solid var(--line)">
  <div class="wrap svc-wrap">
-  <div class="svc-side"><div class="label" data-k="l2">Servizi</div><h2 data-k="s2">Tutto il verde, un solo interlocutore</h2><p style="color:var(--muted);margin-top:14px;font-size:17px" data-k="s2p">Dalla siepe di casa al parco pubblico, ci occupiamo di ogni fase: progetto, realizzazione e manutenzione nel tempo.</p><img src="img/topiaria.jpg" alt="Ulivo potato a nuvole" loading="lazy" data-ka="a_top"></div>
+  <div class="svc-side"><div class="label" data-k="l2">Servizi</div><h2 data-k="s2">Tutto il verde, un solo interlocutore</h2><p style="color:var(--muted);margin-top:14px;font-size:17px" data-k="s2p">Dalla siepe di casa al parco pubblico, ci occupiamo di ogni fase: progetto, realizzazione e manutenzione nel tempo.</p><img src="img/gabbioni.jpg" alt="Scalinata tra muri in gabbioni e rose bianche" loading="lazy" width="864" height="1080" data-ka="a_top"></div>
   <div class="svc">
    <div class="grp"><h3 data-k="g1">Cura del verde</h3><ul>
     <li><svg><use href="#ok"/></svg><span data-k="g1a">Manutenzione di giardini e aree verdi</span></li><li><svg><use href="#ok"/></svg><span data-k="g1b">Taglio dell'erba</span></li><li><svg><use href="#ok"/></svg><span data-k="g1c">Prati da semina e a pronto effetto</span></li><li><svg><use href="#ok"/></svg><span data-k="g1d">Prato sintetico</span></li><li><svg><use href="#ok"/></svg><span data-k="g1e">Giardini e parchi storici</span></li><li><svg><use href="#ok"/></svg><span data-k="g1f">Smaltimento del verde tagliato</span></li></ul></div>
@@ -218,6 +239,19 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
    <div class="grp"><h3 data-k="g3">Progetti e grandi aree</h3><ul>
     <li><svg><use href="#ok"/></svg><span data-k="g3a">Progettazione e realizzazione di verde privato</span></li><li><svg><use href="#ok"/></svg><span data-k="g3b">Progettazione e realizzazione di verde pubblico</span></li><li><svg><use href="#ok"/></svg><span data-k="g3c">Impianti di irrigazione</span></li><li><svg><use href="#ok"/></svg><span data-k="g3d">Mitigazione di impianti fotovoltaici</span></li><li><svg><use href="#ok"/></svg><span data-k="g3e">Disboscamento di aree incolte</span></li></ul></div>
   </div>
+ </div>
+</section>
+
+<section class="band work" id="al-lavoro">
+ <div class="wrap">
+  <div class="sec-h"><div><div class="label" data-k="lv">In cantiere</div><h2 data-k="sv">La squadra al lavoro</h2></div><p data-k="svp">Qualche istante dai nostri cantieri: potature in quota, terreni bonificati, nuovi prati e aiuole che prendono forma.</p></div>
+  <div class="vids">
+   <figure class="vid"><video src="vid/palme.mp4" poster="vid/palme.jpg" muted loop playsinline preload="none" aria-label="Potatura di palme alte"></video><figcaption data-k="v1">Potatura di palme alte</figcaption></figure>
+   <figure class="vid"><video src="vid/trinciatura.mp4" poster="vid/trinciatura.jpg" muted loop playsinline preload="none" aria-label="Trinciatura di un terreno incolto"></video><figcaption data-k="v2">Trinciatura di un terreno incolto</figcaption></figure>
+   <figure class="vid"><video src="vid/fresatura.mp4" poster="vid/fresatura.jpg" muted loop playsinline preload="none" aria-label="Preparazione del terreno con fresa"></video><figcaption data-k="v3">Preparazione del terreno con fresa</figcaption></figure>
+   <figure class="vid"><video src="vid/messa-a-dimora.mp4" poster="vid/messa-a-dimora.jpg" muted loop playsinline preload="none" aria-label="Posa del prato a rotoli"></video><figcaption data-k="v4">Posa del prato a rotoli e aiuole</figcaption></figure>
+  </div>
+  <a class="ig" href="https://www.instagram.com/landscape_annunziata/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></g></svg><span data-k="igl">Altri video su Instagram</span></a>
  </div>
 </section>
 
@@ -252,6 +286,17 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
  </div>
 </section>
 
+<section class="band" id="prima-dopo" style="background:var(--paper);border-block:1px solid var(--line)">
+ <div class="wrap">
+  <div class="sec-h"><div><div class="label" data-k="lb1">Prima e dopo</div><h2 data-k="sb">Il risultato si vede</h2></div><p data-k="sbp">Trascina la barra per confrontare lo stato iniziale con il lavoro finito.</p></div>
+  <div class="ba-grid">
+   <div class="ba-item"><div class="ba"><img src="img/ba1a.jpg" alt="Prima: aiuola da sistemare" loading="lazy" data-ka="ba1a"><img class="af" src="img/ba1b.jpg" alt="Dopo: nuovo prato a pronto effetto" loading="lazy" data-ka="ba1b"><span class="tg l" data-k="pr1">Prima</span><span class="tg r" data-k="do1">Dopo</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Prima / Dopo"></div><h3 data-k="b1h">Nuovo prato a pronto effetto</h3><p data-k="b1p">Preparazione del terreno, posa del prato a rotoli e piantumazione.</p></div>
+   <div class="ba-item"><div class="ba"><img src="img/ba2a.jpg" alt="Prima: area verde incolta" loading="lazy" data-ka="ba2a"><img class="af" src="img/ba2b.jpg" alt="Dopo: area verde ripulita" loading="lazy" data-ka="ba2b"><span class="tg l" data-k="pr1">Prima</span><span class="tg r" data-k="do1">Dopo</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Prima / Dopo"></div><h3 data-k="b2h">Ripristino di un'area condominiale</h3><p data-k="b2p">Pulizia dalle infestanti, potature e riordino degli spazi.</p></div>
+   <div class="ba-item"><div class="ba"><img src="img/ba3a.jpg" alt="Prima: aiuola invasa dall'erba" loading="lazy" data-ka="ba3a"><img class="af" src="img/ba3b.jpg" alt="Dopo: aiuola pulita" loading="lazy" data-ka="ba3b"><span class="tg l" data-k="pr1">Prima</span><span class="tg r" data-k="do1">Dopo</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Prima / Dopo"></div><h3 data-k="b3h">Manutenzione ordinaria</h3><p data-k="b3p">Taglio dell'erba, diserbo e pulizia delle aiuole.</p></div>
+  </div>
+ </div>
+</section>
+
 <section class="band italy">
  <svg class="deco" viewBox="0 0 80 64" aria-hidden="true"><use href="#tree"/></svg>
  <div class="wrap">
@@ -262,21 +307,35 @@ footer .bot{border-top:1px solid rgba(244,239,226,.14);margin-top:40px;padding-t
 
 <section class="band">
  <div class="wrap">
-  <div class="sec-h"><div><div class="label" data-k="l4">Galleria</div><h2 data-k="s4">Dai nostri cantieri</h2></div><p data-k="s4p">Giardini, potature, prati e lavori in altezza. Tocca una foto per ingrandirla.</p></div>
+  <div class="sec-h"><div><div class="label" data-k="l4">Galleria</div><h2 data-k="s4">Dai nostri cantieri</h2></div><p data-k="s4p">Giardini privati, parchi pubblici, potature e grandi superfici. Tocca una foto per ingrandirla.</p></div>
   <div class="gal" id="gal">
    <button class="w t"><img src="img/olivi-sera.jpg" alt="Uliveto con illuminazione" loading="lazy" data-ka="a_g1"><span data-k="a_g1">Uliveto con illuminazione</span></button>
-   <button class="w"><img src="img/giardino-zen.jpg" alt="Giardino zen" loading="lazy" data-ka="a_g2"><span data-k="a_g2">Giardino zen</span></button>
-   <button class="t"><img src="img/irrigazione.jpg" alt="Impianto di irrigazione in posa" loading="lazy" data-ka="a_g3"><span data-k="a_g3">Impianto di irrigazione in posa</span></button>
-   <button><img src="img/tappeto-fiorito.jpg" alt="Aiuola fiorita" loading="lazy" data-ka="a_g4"><span data-k="a_g4">Aiuola fiorita</span></button>
-   <button class="w"><img src="img/tree-climber.jpg" alt="Tree climbing" loading="lazy" data-ka="a_g5"><span data-k="a_g5">Tree climbing</span></button>
-   <button><img src="img/olivi-prato.jpg" alt="Prato e ulivi" loading="lazy" data-ka="a_g6"><span data-k="a_g6">Prato e ulivi</span></button>
-   <button class="t"><img src="img/tree-climbing.jpg" alt="Potatura di pino" loading="lazy" data-ka="a_g7"><span data-k="a_g7">Potatura di pino</span></button>
-   <button class="w"><img src="img/topiaria-giardino.jpg" alt="Arte topiaria" loading="lazy" data-ka="a_g8"><span data-k="a_g8">Arte topiaria</span></button>
-   <button class="t"><img src="img/prato-sintetico.jpg" alt="Prato sintetico" loading="lazy" data-ka="a_g9"><span data-k="a_g9">Prato sintetico</span></button>
-   <button class="w"><img src="img/progetto.jpg" alt="Progetto di giardino" loading="lazy" data-ka="a_g10"><span data-k="a_g10">Progetto di giardino</span></button>
-   <button class="w"><img src="img/potatura.jpg" alt="Potatura in corso" loading="lazy" data-ka="a_g11"><span data-k="a_g11">Potatura in corso</span></button>
-   <button class="w"><img src="img/prato-inglese.jpg" alt="Prato all'inglese" loading="lazy" data-ka="a_g12"><span data-k="a_g12">Prato all'inglese</span></button>
+   <button class="w"><img src="img/giardino-padiglione.jpg" alt="Giardino con camminamento in pietra" loading="lazy" data-ka="g_pad"><span data-k="g_pad">Giardino con camminamento in pietra</span></button>
+   <button class="t"><img src="img/vialetto-limoni.jpg" alt="Vialetto tra i limoni" loading="lazy" data-ka="g_lim"><span data-k="g_lim">Vialetto tra i limoni</span></button>
+   <button class="w"><img src="img/aiuola-strelitzia.jpg" alt="Aiuola con strelitzie e palme nane" loading="lazy" data-ka="g_str"><span data-k="g_str">Aiuola con strelitzie e palme nane</span></button>
+   <button class="t"><img src="img/tree-climbing-pino.jpg" alt="Potatura di pino in tree climbing" loading="lazy" data-ka="a_g7"><span data-k="a_g7">Potatura di pino in tree climbing</span></button>
+   <button class="w"><img src="img/aiuola-cycas.jpg" alt="Aiuole fiorite con cycas" loading="lazy" data-ka="g_cyc"><span data-k="g_cyc">Aiuole fiorite con cycas</span></button>
+   <button><img src="img/giardino-palma-acero.jpg" alt="Giardino con palma e acero rosso" loading="lazy" data-ka="g_pal"><span data-k="g_pal">Giardino con palma e acero rosso</span></button>
+   <button class="w"><img src="img/scalinata-fiorita.jpg" alt="Bordure fiorite lungo la scalinata" loading="lazy" data-ka="g_sca"><span data-k="g_sca">Bordure fiorite lungo la scalinata</span></button>
+   <button class="t"><img src="img/orto-terrazzato.jpg" alt="Orto terrazzato con vista mare" loading="lazy" data-ka="g_ort"><span data-k="g_ort">Orto terrazzato con vista mare</span></button>
+   <button><img src="img/ulivo-secolare.jpg" alt="Ulivo secolare e prato all'inglese" loading="lazy" data-ka="g_uli"><span data-k="g_uli">Ulivo secolare e prato all'inglese</span></button>
+   <button class="w"><img src="img/camminamento-parco.jpg" alt="Camminamento in pietra nel parco" loading="lazy" data-ka="g_cam"><span data-k="g_cam">Camminamento in pietra nel parco</span></button>
+   <button><img src="img/bouganville.jpg" alt="Prato e fioriture sospese" loading="lazy" data-ka="g_fio"><span data-k="g_fio">Prato e fioriture sospese</span></button>
+   <button><img src="img/giardino-zen.jpg" alt="Giardino zen" loading="lazy" data-ka="a_g2"><span data-k="a_g2">Giardino zen</span></button>
+   <button class="w more"><img src="img/potatura-agrumi.jpg" alt="Potatura di agrumi" loading="lazy" data-ka="g_agr"><span data-k="g_agr">Potatura di agrumi</span></button>
+   <button class="t more"><img src="img/siepe.jpg" alt="Siepe potata" loading="lazy" data-ka="g_sie"><span data-k="g_sie">Siepe potata</span></button>
+   <button class="w more"><img src="img/trinciatrice.jpg" alt="Trinciatura di un terreno incolto" loading="lazy" data-ka="g_tri"><span data-k="g_tri">Trinciatura di un terreno incolto</span></button>
+   <button class="more"><img src="img/palma-parco.jpg" alt="Area verde pubblica con palme" loading="lazy" data-ka="g_ppa"><span data-k="g_ppa">Area verde pubblica con palme</span></button>
+   <button class="w more"><img src="img/tappeto-fiorito.jpg" alt="Aiuola fiorita" loading="lazy" data-ka="a_g4"><span data-k="a_g4">Aiuola fiorita</span></button>
+   <button class="t more"><img src="img/camminamento-pietra.jpg" alt="Vialetto in lastre di pietra" loading="lazy" data-ka="g_lst"><span data-k="g_lst">Vialetto in lastre di pietra</span></button>
+   <button class="more"><img src="img/taglio-erba-parco.jpg" alt="Taglio dell'erba in un'area pubblica" loading="lazy" data-ka="g_tag"><span data-k="g_tag">Taglio dell'erba in un'area pubblica</span></button>
+   <button class="w more"><img src="img/aiuola-aromatiche.jpg" alt="Aiuola di piante aromatiche" loading="lazy" data-ka="g_aro"><span data-k="g_aro">Aiuola di piante aromatiche</span></button>
+   <button class="w more"><img src="img/topiaria-giardino.jpg" alt="Arte topiaria" loading="lazy" data-ka="a_g8"><span data-k="a_g8">Arte topiaria</span></button>
+   <button class="more"><img src="img/prato-ulivi.jpg" alt="Prato e ulivi" loading="lazy" data-ka="a_g6"><span data-k="a_g6">Prato e ulivi</span></button>
+   <button class="w more"><img src="img/tree-climber.jpg" alt="Tree climbing" loading="lazy" data-ka="a_g5"><span data-k="a_g5">Tree climbing</span></button>
+   <button class="more"><img src="img/panchina-prato.jpg" alt="Prato e alberature" loading="lazy" data-ka="g_pan"><span data-k="g_pan">Prato e alberature</span></button>
   </div>
+  <div class="gal-more"><button class="btn pri" type="button" id="gm" data-k="gm">Mostra altre foto</button></div>
  </div>
 </section>
 
@@ -369,9 +428,11 @@ f1:"Years",f2:"Works",f2v:"Pruning, turf and seeded lawns, mechanical weeding, f
 r1y:"Business · 2026",r1h:"Hotel property",r1p:"Design and build of the green spaces.",r2y:"Private · 2026",r2h:"Private complex in Campania",r2p:"Routine and extraordinary maintenance of green areas and irrigation systems.",
 r3y:"Public body · 2026",r3h:"Municipality near Naples",r3p:"Maintenance of public green areas.",r4y:"Solar",r4p:"Environmental mitigation and vegetation maintenance for solar farms.",
 it:"We work all over Italy",itp:"Starting from Campania, we reach job sites wherever they are, with our own team and equipment. We have also designed and built green spaces abroad, in Ireland.",pl1:"All of Italy",pl2:"Ireland",
-l4:"Gallery",s4:"From our job sites",s4p:"Gardens, pruning, lawns and work at height. Tap a photo to enlarge it.",
-a_g1:"Olive grove with lighting",a_g2:"Zen garden",a_g3:"Irrigation system being installed",a_g4:"Flower bed",a_g5:"Tree climbing",a_g6:"Lawn and olive trees",a_g7:"Pine tree pruning",a_g8:"Topiary art",a_g9:"Artificial grass",a_g10:"Garden design project",a_g11:"Pruning in progress",a_g12:"English-style lawn",
-a_hero:"Parco del Mercatello, Salerno",a_tr:"Tractor with mulcher on overgrown land",a_pi:"Irrigated lawn among olive trees",a_top:"Cloud-pruned olive tree",a_m1:"Lawn with stepping stones",a_m2:"Flower beds along the avenue",a_m3:"Large lawn beside the path",a_m4:"Tree-lined avenue with lawns",a_m5:"Flower beds and lawns along the promenade",a_m6:"Wisteria in bloom on the pergola",
+l4:"Gallery",s4:"From our job sites",s4p:"Private gardens, public parks, pruning and large areas. Tap a photo to enlarge it.",
+a_g1:"Olive grove with lighting",a_g2:"Zen garden",a_g4:"Flower bed",a_g5:"Tree climbing",a_g6:"Lawn and olive trees",a_g7:"Pine tree pruning by tree climbing",a_g8:"Topiary art",g_pad:"Garden with stone path",g_lim:"Path among lemon trees",g_str:"Bed with bird of paradise and dwarf palms",g_cyc:"Flower beds with sago palms",g_pal:"Garden with palm and red maple",g_sca:"Flower borders along the steps",g_ort:"Terraced kitchen garden with sea view",g_uli:"Ancient olive tree and English lawn",g_cam:"Stone walkway in the park",g_fio:"Lawn and hanging flowers",g_agr:"Citrus tree pruning",g_sie:"Trimmed hedge",g_tri:"Mulching overgrown land",g_ppa:"Public green area with palms",g_lst:"Stone slab path",g_tag:"Grass cutting in a public area",g_aro:"Herb bed",g_pan:"Lawn and trees",gm:"Show more photos",gl:"Show fewer photos",
+lv:"On site",sv:"Our team at work",svp:"A few moments from our job sites: pruning at height, land clearing, new lawns and flower beds taking shape.",v1:"Pruning tall palm trees",v2:"Mulching overgrown land",v3:"Soil preparation with a rotary tiller",v4:"Laying turf and planting beds",igl:"More videos on Instagram",
+lb1:"Before and after",sb:"See the difference",sbp:"Drag the bar to compare the starting point with the finished work.",pr1:"Before",do1:"After",b1h:"New ready-made lawn",b1p:"Soil preparation, turf laying and planting.",b2h:"Condominium green area restored",b2p:"Weed clearing, pruning and tidying up the space.",b3h:"Routine maintenance",b3p:"Grass cutting, weeding and flower bed cleaning.",ba1a:"Before: bed to be landscaped",ba1b:"After: new ready-made lawn",ba2a:"Before: overgrown green area",ba2b:"After: cleared green area",ba3a:"Before: bed overrun by grass",ba3b:"After: clean flower bed",
+a_hero:"Well-kept lawn among citrus trees",a_tr:"Tractor with forestry mulcher at work",a_pi:"Garden with lawn and stone path",a_top:"Steps between gabion walls and white roses",a_m1:"Lawn with stepping stones",a_m2:"Flower beds along the avenue",a_m3:"Large lawn beside the path",a_m4:"Tree-lined avenue with lawns",a_m5:"Flower beds and lawns along the promenade",a_m6:"Wisteria in bloom on the pergola",
 l5:"About us",s5:"A family tradition",ab1:"For us, working with plants is passed down from generation to generation. In 2019 Ciro Annunziata brought this experience into his own company, which today covers every aspect of green spaces: maintenance, design, pruning, garden construction and care of parks and green areas.",
 ab2:"In recent years we have specialised in vegetation management for solar farms, keeping installations clean, efficient and compliant. Our team also includes landscape designers, to create spaces that are beautiful, functional and sustainable.",q:"Tradition, experience and innovation to take care of your green spaces.",
 bx1:"Our team",t1:"Owner",t2:"Site supervisor",t3:"Team leader",t4:"Skilled workers",t5:"Landscape designers",bx2:"Training and certifications",c_1:"Tree climbing certification",c_2:"Aerial platform licence",c_3:"Plant protection products licence",c_4:"Master gardener",c_5:"Olive tree pruning course",
@@ -381,7 +442,7 @@ l7:"Contact",s7:"Book a free site visit",s7p:"Tell us what you need: we will get
 i1:"Phone",off:"+39 081 1971 6371 · office",i3:"Address",i4:"Follow us",ft:"Landscape maintenance, design and construction. Based in Trecase, working across Campania and all of Italy.",fh1:"Contact",fh2:"Website",fb:"Landscape Annunziata by Ciro Annunziata · VAT 09172151210",sig:"Website by Luciano Salierno"};
 const IT={};
 const txt=[...document.querySelectorAll('[data-k]')],alt=[...document.querySelectorAll('[data-ka]')],ph=[...document.querySelectorAll('[data-kp]')];
-txt.forEach(e=>{if(!(e.dataset.k in IT))IT[e.dataset.k]=e.innerHTML});
+txt.forEach(e=>{if(!(e.dataset.k in IT))IT[e.dataset.k]=e.innerHTML});IT.gl='Mostra meno foto';
 const IT_ALT=new Map(alt.map(e=>[e,e.alt])),IT_PH=new Map(ph.map(e=>[e,e.placeholder]));
 const setLang=l=>{
  txt.forEach(e=>{const v=l==='en'?EN[e.dataset.k]:IT[e.dataset.k];if(v!=null)e.innerHTML=v});
@@ -397,11 +458,16 @@ let saved=null;try{saved=localStorage.getItem('la-lang')}catch(e){}
 if(saved==='en')setLang('en');
 const f=document.getElementById('f'),ok=document.getElementById('ok');
 f.addEventListener('submit',e=>{e.preventDefault();ok.style.display='block';});
-const items=[...document.querySelectorAll('#mos button,#gal button')];
+const gal=document.getElementById('gal'),gm=document.getElementById('gm');
+gm.addEventListener('click',()=>{const o=gal.classList.toggle('open');gm.dataset.k=o?'gl':'gm';const l=document.documentElement.lang;gm.innerHTML=l==='en'?EN[gm.dataset.k]:(o?'Mostra meno foto':'Mostra altre foto');if(!o)gal.scrollIntoView({block:'start'})});
+document.querySelectorAll('.ba').forEach(b=>{const r=b.querySelector('input');const u=()=>b.style.setProperty('--p',r.value+'%');r.addEventListener('input',u);u()});
+const vids=[...document.querySelectorAll('.vid video')];const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm){vids.forEach(v=>{v.controls=true})}else if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.35});vids.forEach(v=>io.observe(v))}
+const all=[...document.querySelectorAll('#mos button,#gal button')];let items=all;
 const lb=document.getElementById('lb'),li=document.getElementById('lbi'),lc=document.getElementById('lbc');
 let cur=0;
 const show=i=>{cur=(i+items.length)%items.length;const im=items[cur].querySelector('img');li.src=im.src;li.alt=im.alt;lc.textContent=im.alt;lb.classList.add('on');};
-items.forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+all.forEach(b=>b.addEventListener('click',()=>{items=all.filter(x=>x.offsetParent);show(items.indexOf(b))}));
 const close=()=>lb.classList.remove('on');
 document.getElementById('lbx').addEventListener('click',close);
 document.getElementById('lbp').addEventListener('click',()=>show(cur-1));
